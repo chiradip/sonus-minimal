@@ -23,6 +23,7 @@ Three units to be built. This repo is the complete, resolved build package.
 |---|---|
 | `LABBOOK.md` | The lab book — single source of build truth (§4 tables govern) |
 | `docs/BOM-rev4.csv` | Authoritative parts list, rev 4 (supersedes rev 3) |
+| `docs/part_tracking.md` | Procurement log — actual sources, deviations from the BOM (e.g., Amazon-sourced FETs), arrival checks |
 | `docs/original/` | Incoming handoff package: rev 3 BOM, design write-up, original PNG diagrams — **superseded**, kept for provenance |
 | `diagrams/fig01…fig10*.svg` | Rev A figures: system, schematics, jig, boards, chassis, dim-bulb, milling plans |
 | `spice/*.cir` | LTspice/ngspice decks for the channel and PSU (expected results in comments) |
