@@ -1,0 +1,5 @@
+Quantity,Manufacturer Part Number,Customer Reference,Description,Qty per amp (stereo),Alternate MPN,Notes
+6,MFR-25FBF52-82K,R_fb,Res 82k 1% 0.25W metal film axial,2,RNF14FTD82K0,"REPLACES 6 of the rev3 47k in the R_fb position (ECR-2). Do NOT stuff 47k as R_fb - see DELTA doc. The freed 47k become spares."
+6,MFR-25FBF52-22K,Rb_bot (default),Res 22k 1% 0.25W metal film axial,2,RNF14FTD22K0,"REPLACES rev3 Rb_bot 10k (MFR-25FBF52-10K) entirely (ECR-2). Do NOT stuff the 10k anywhere in this amp."
+3,UPW1H222MHD,C_cm,Cap 2200uF 50V radial low-Z (Nichicon UPW),1,Panasonic EEU-FC1H222; Rubycon 50ZLH2200MEFC16X25,"REPLACES rev3 ECA-1VM222 (35V, stock never verified) (ECR-6). Confirm stock at cart."
+6,UPW1H101MPD,Cb_filt,Cap 100uF 50V radial low-Z (Nichicon UPW),2,Panasonic EEU-FC1H101; Rubycon 50PK100MEFC6.3X11,"REPLACES rev3 ECA-1VM101 (35V, stock never verified) (ECR-6). Confirm stock at cart."

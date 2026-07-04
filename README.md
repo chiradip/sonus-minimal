@@ -13,7 +13,9 @@ Three units to be built. This repo is the complete, resolved build package.
 2. Print `diagrams/fig02` (channel schematic), `fig03` (PSU schematic), and `fig05`
    (board map) for the bench.
 3. Order from **`docs/BOM-rev4.csv`** (DigiKey-import compatible; read the import notes
-   in LABBOOK §4.4).
+   in LABBOOK §4.4). Already holding a rev 3 order? Use the two delta files
+   (`docs/BOM-rev4-delta-1-additions.csv`, `…-2-replacements.csv`) and read
+   **`docs/BOM-rev3-to-rev4-DELTA.md`** for why the superseded parts must not be stuffed.
 
 ## Layout
 
