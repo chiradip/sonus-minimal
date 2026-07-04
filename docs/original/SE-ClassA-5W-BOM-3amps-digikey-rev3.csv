@@ -1,0 +1,28 @@
+Quantity,Manufacturer Part Number,Customer Reference,Description,Qty per amp (stereo),Alternate MPN,Notes
+12,IRFP150NPBF,"Q1,Q2 (gain + follower, both ch)",MOSFET N-ch 100V 42A TO-247AC,4,IRFP250NPBF; IXYS IRFP250; IRFP240PBF (when back),"In stock DigiKey+Mouser. Low Crss, ideal for SE Class A. 100V is ample for 24V rail. MATCH Vgs in pairs - buy ~16-20; bias is trimmed so device spread is fine."
+3,MJE15032G,Q_cm,BJT NPN 250V 8A TO-220 (pass device),1,BD243CG; KSC2073,Pin-compatible 250V successor to MJE15030G. In stock DigiKey. Heatsink (~6W).
+3,KBPC3506-G,BR1,"Bridge rectifier 600V 35A, chassis",1,GBPC3506W-G,Standard Si bridge; cap-mult cleans ripple. Schottky (4x SB5100) optional.
+18,MFR-25FBF52-47K,"R_in,R_fb,Rb_top",Res 47k 1% 0.25W metal film axial,6,RNF14FTD47K0 (Stackpole),Input Z / feedback / bias divider top.
+6,MFR-25FBF52-10K,Rb_bot,Res 10k 1% 0.25W metal film axial,2,RNF14FTD10K0,VBIAS divider bottom.
+6,MFR-25FBF52-220R,R_gs,Res 220R 1% 0.25W metal film axial,2,RNF14FTD220R,Q1 gate stopper.
+6,MFR-25FBF52-100R,R_g2,Res 100R 1% 0.25W metal film axial,2,RNF14FTD100R,Q2 gate stopper.
+12,0.47AECT-ND,"R_s1,R_s2","Res 0.47R 3W 5% metal-oxide, non-inductive (DigiKey P/N)",4,Ohmite AG5 0.47R 5W (audio); Yageo SQP500JB-0R47 (5W cement),"DigiKey HOUSE P/N - import as DigiKey Part Number, not MPN. In stock. Source/bias sense: 0.66V=1.4A; bench-trimmed so 5% fine."
+6,FMP200JR-52-100R,R_dc,Res 100R 2W metal film axial,2,FMP300JR-52-100R (3W),Output bleeder. Same in-stock FMP family as R_cm/R_bleed.
+3,FMP200JR-52-220R,R_cm,Res 220R 2W metal film axial,1,FMP100JR-52-220R (1W),Cap-multiplier base feed.
+3,FMP200JR-52-4K7,R_bleed,Res 4.7k 2W metal film axial,1,FMP300JR-52-4K7 (3W),Reservoir safety bleeder.
+6,MKS2C042201K00JC00,C_in,Cap 2.2uF 63V film PET radial (WIMA MKS2),2,Kemet R82 2.2uF; WIMA MKP (PP),Input coupling. Only in-path cap.
+12,R82EC4100DQ70K,"C_out_byp,Cb_byp",Cap 1uF 100V film PET radial (Kemet R82),4,R82EC4100DQ70J (5%),Through-hole stacked film. In stock DigiKey. Replaces discontinued WIMA.
+6,R82EC3100DQ70K,C_rail_byp,Cap 0.1uF 100V film PET radial (Kemet R82),2,R82EC3100DQ70J (5%),Through-hole. In stock DigiKey. Replaces non-stock WIMA.
+6,50USC10000MEFCSN25X50,C_out,Cap 10000uF 50V snap-in (Rubycon USC),2,Nichicon LLR1H103MHSC; UVZ1H103MMD,"Output coupling, ~2Hz into 8R. In stock DigiKey. Snap-in, hand-solderable."
+6,50USC10000MEFCSN25X50,C_res,Cap 10000uF 50V snap-in (Rubycon USC) - reservoir,2,any 50V snap-in >=10000uF,"REWORKED: 2 paralleled (~20000uF, lower ESR) replaces scarce 22000uF. SAME PART as C_out (combine to one line, qty 12). Add more in parallel for a stiffer rail."
+3,ECA-1VM222,C_cm,Cap 2200uF 35V radial elec (Panasonic),1,Rubycon 35PK2200M...; Nichicon UPW,Cap-mult reference. Confirm stock at cart.
+6,ECA-1VM101,Cb_filt,Cap 100uF 35V radial elec (Panasonic),2,Rubycon 50PK101MEFC; Nichicon UPW,VBIAS filter. Confirm stock at cart.
+6,50PK470MEFC10X20,C_rail,Cap 470uF 50V radial elec (Rubycon PK),2,Nichicon UPW1H471MPD,Local rail bulk. In stock DigiKey.
+6,3296W-1-103LF,RV_bias,Trimpot 10k 25-turn top adj (Bourns 3296),2,3296Y-1-103LF (side adj),Bias fine-adjust.
+3,0218002.MXP,F1,Fuse 2A 250V slow-blow 5x20mm (Littelfuse),1,0218002.HXP,Mains. Fits the IEC inlet fuse drawer.
+15,4880SG,INS,TO-247 insulator: mica + shoulder washer (Aavid),5,Bergquist Sil-Pad + TO-247 bushing,"Q1,Q2(x4)+Q_cm. Tabs are DRAIN potential. Verify kit contents."
+6,RCJ-031,J_in,"RCA jack, chassis (CUI)",2,Amphenol ACJR-RED/BLK,Line input. Verify footprint.
+6,7019,J_spk,"Binding post DUAL red+black, panel (Keystone 7019)",2,Pomona 6883 (dual); CUI binding post,One dual post per channel (2 terminals each). In stock DigiKey.
+3,719W-UEL3BR51,J_mains,"IEC C14 inlet, fused + switched, QC term (Qualtek)",1,723W-BEL3BR51A (Qualtek),Mains entry. Takes 5x20mm fuse (F1). In stock DigiKey.
+3,1182G18,T1,"Toroid 225VA, dual 18VAC, chassis (Hammond 1182)",1,"Antek AS-2218 (200VA 2x18V, antekinc.com direct, cheaper)",STOCKED at DigiKey/Mouser (ships today) - this is the one-stop option. Antek AS-2218 is the popular direct-order alt but is NOT a distributor SKU.
+6,HeatsinkUSA 10.080in,HS1,"Heatsink, 10.080in-wide extrusion, cut to length (~8in/ch)",2,Wakefield 1-ft extrusion stick (Mouser); Boyd cut-to-length (DigiKey quote),No true drop-in distributor SKU exists at <=0.5 C/W - it is a cut-to-length item. Easiest: heatsinkusa.com direct. Distributor route: Wakefield extrusion (Mouser) or Boyd quote (DigiKey).

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 780" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    text{font-family:Helvetica,Arial,sans-serif;fill:#1a1a1a}
+    .ttl{font-size:23px;font-weight:700;fill:#123a5f}
+    .b{font-size:15.5px;font-weight:700;fill:#123a5f}
+    .s{font-size:13px;fill:#455a64}
+    .dc{font-size:13.5px;font-style:italic;font-weight:600;fill:#ad1457}
+    .note{font-size:13px;fill:#455a64}
+  </style>
+  <defs>
+    <marker id="am" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#546e7a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b71c1c"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker>
+  </defs>
+  <rect width="1280" height="780" fill="#fff"/>
+  <text x="60" y="46" class="ttl">Fig. 1 — System Block Diagram (one stereo amplifier)</text>
+  <text x="60" y="70" class="note">One PSU feeds two identical channels &#183; everything left of the transformer is lethal &#183; everything right of it is warm but safe</text>
+
+  <!-- mains row -->
+  <rect x="60" y="110" width="640" height="130" rx="10" fill="#fff5f5" stroke="#b71c1c" stroke-dasharray="9 6" stroke-width="1.6"/>
+  <text x="76" y="134" font-size="13" font-weight="700" fill="#b71c1c">&#9888; MAINS — 120 V</text>
+  <rect x="80" y="150" width="120" height="70" rx="8" fill="#fff" stroke="#b71c1c" stroke-width="2"/>
+  <text x="140" y="180" class="b" text-anchor="middle" fill="#b71c1c">WALL</text>
+  <text x="140" y="198" class="s" text-anchor="middle">120 V / 60 Hz</text>
+  <path d="M200,185 H236" stroke="#b71c1c" stroke-width="2.4" marker-end="url(#ar)" fill="none"/>
+  <rect x="240" y="150" width="160" height="70" rx="8" fill="#fff" stroke="#b71c1c" stroke-width="2"/>
+  <text x="320" y="175" class="b" text-anchor="middle" fill="#b71c1c">IEC + F1 + SWITCH</text>
+  <text x="320" y="193" class="s" text-anchor="middle">fused inlet, 2 A slow</text>
+  <text x="320" y="209" class="s" text-anchor="middle">earth &#8594; chassis bolt</text>
+  <path d="M400,185 H436" stroke="#b71c1c" stroke-width="2.4" marker-end="url(#ar)" fill="none"/>
+  <rect x="440" y="150" width="100" height="70" rx="8" fill="#fff" stroke="#b71c1c" stroke-width="2"/>
+  <text x="490" y="180" class="b" text-anchor="middle" fill="#b71c1c">RT1</text>
+  <text x="490" y="198" class="s" text-anchor="middle">CL-60 inrush</text>
+  <path d="M540,185 H576" stroke="#b71c1c" stroke-width="2.4" marker-end="url(#ar)" fill="none"/>
+  <rect x="580" y="146" width="100" height="78" rx="39" fill="#fff" stroke="#b71c1c" stroke-width="2"/>
+  <text x="630" y="180" class="b" text-anchor="middle" fill="#b71c1c">T1</text>
+  <text x="630" y="198" class="s" text-anchor="middle">toroid 225 VA</text>
+
+  <!-- down to DC row -->
+  <path d="M630,224 V266" stroke="#546e7a" stroke-width="2.4" marker-end="url(#am)" fill="none"/>
+  <text x="644" y="252" class="dc">2 &#215; 18.6 VAC (parallel)</text>
+
+  <!-- dc row: right to left -->
+  <rect x="560" y="270" width="140" height="76" rx="8" fill="#fff" stroke="#546e7a" stroke-width="2"/>
+  <text x="630" y="300" class="b" text-anchor="middle">BR1</text>
+  <text x="630" y="318" class="s" text-anchor="middle">bridge 35 A</text>
+  <path d="M560,308 H504" stroke="#546e7a" stroke-width="2.4" marker-end="url(#am)" fill="none"/>
+  <rect x="360" y="270" width="140" height="76" rx="8" fill="#fff" stroke="#546e7a" stroke-width="2"/>
+  <text x="430" y="296" class="b" text-anchor="middle">C_res</text>
+  <text x="430" y="314" class="s" text-anchor="middle">2 &#215; 10,000 &#181;F</text>
+  <text x="430" y="330" class="dc" text-anchor="middle">+24.2 V &#183; 1.2 V pp</text>
+  <path d="M360,308 H304" stroke="#546e7a" stroke-width="2.4" marker-end="url(#am)" fill="none"/>
+  <rect x="130" y="270" width="170" height="76" rx="8" fill="#fff" stroke="#546e7a" stroke-width="2"/>
+  <text x="215" y="294" class="b" text-anchor="middle">CAP MULTIPLIER</text>
+  <text x="215" y="312" class="s" text-anchor="middle">BD139 &#8594; MJE15032</text>
+  <text x="215" y="330" class="s" text-anchor="middle">ripple 1.2 V &#8594; &lt;5 mV</text>
+
+  <!-- clean rail -->
+  <path d="M215,346 V398" stroke="#b71c1c" stroke-width="3" fill="none"/>
+  <circle cx="215" cy="398" r="5" fill="#b71c1c"/>
+  <text x="232" y="384" class="dc">+22.3 V CLEAN RAIL &#183; 2.8 A total</text>
+  <path d="M215,398 V470 H296" stroke="#b71c1c" stroke-width="3" marker-end="url(#ar)" fill="none"/>
+  <path d="M215,398 V614 H296" stroke="#b71c1c" stroke-width="3" marker-end="url(#ar)" fill="none"/>
+
+  <!-- channel L -->
+  <rect x="300" y="424" width="230" height="96" rx="8" fill="#f0f7f0" stroke="#2e7d32" stroke-width="2"/>
+  <text x="415" y="450" class="b" text-anchor="middle" fill="#1b5e20">CHANNEL L board</text>
+  <text x="415" y="468" class="s" text-anchor="middle">Q1 + Q2 on heatsink (Fig. 2)</text>
+  <text x="415" y="486" class="dc" text-anchor="middle">idles at 1.4 A — &#8776;31 W of heat</text>
+  <text x="415" y="504" class="s" text-anchor="middle">heatsink &#8804;0.5 &#176;C/W, always on</text>
+  <rect x="530" y="430" width="14" height="84" fill="#cfd8dc" stroke="#78909c"/>
+  <path d="M544,436 h12 M544,450 h12 M544,464 h12 M544,478 h12 M544,492 h12 M544,506 h12" stroke="#78909c" stroke-width="3"/>
+  <path d="M560,472 H606" stroke="#546e7a" stroke-width="2.4" marker-end="url(#am)" fill="none"/>
+  <rect x="610" y="440" width="120" height="64" rx="8" fill="#fff" stroke="#546e7a" stroke-width="2"/>
+  <text x="670" y="466" class="b" text-anchor="middle">C_out</text>
+  <text x="670" y="484" class="s" text-anchor="middle">10,000 &#181;F</text>
+  <path d="M730,472 H786" stroke="#546e7a" stroke-width="2.4" marker-end="url(#am)" fill="none"/>
+  <path d="M790,452 h22 v40 h-22 z M812,452 L840,430 V514 L812,492" fill="none" stroke="#212121" stroke-width="2"/>
+  <text x="815" y="536" class="b" text-anchor="middle">SPEAKER L</text>
+  <text x="815" y="553" class="s" text-anchor="middle">8 &#937; &#183; &#8805;92 dB/W/m</text>
+  <!-- input L -->
+  <path d="M186,472 H296" stroke="#1565c0" stroke-width="2.2" marker-end="url(#ab)" fill="none"/>
+  <circle cx="180" cy="472" r="7" fill="#fff" stroke="#1565c0" stroke-width="2.2"/>
+  <text x="164" y="452" class="s" text-anchor="end" fill="#1565c0">RCA IN L (line level)</text>
+
+  <!-- channel R -->
+  <rect x="300" y="568" width="230" height="96" rx="8" fill="#f0f7f0" stroke="#2e7d32" stroke-width="2"/>
+  <text x="415" y="594" class="b" text-anchor="middle" fill="#1b5e20">CHANNEL R board</text>
+  <text x="415" y="612" class="s" text-anchor="middle">identical — build two</text>
+  <text x="415" y="630" class="dc" text-anchor="middle">idles at 1.4 A — &#8776;31 W of heat</text>
+  <text x="415" y="648" class="s" text-anchor="middle">own heatsink, own C_out</text>
+  <rect x="530" y="574" width="14" height="84" fill="#cfd8dc" stroke="#78909c"/>
+  <path d="M544,580 h12 M544,594 h12 M544,608 h12 M544,622 h12 M544,636 h12 M544,650 h12" stroke="#78909c" stroke-width="3"/>
+  <path d="M560,616 H606" stroke="#546e7a" stroke-width="2.4" marker-end="url(#am)" fill="none"/>
+  <rect x="610" y="584" width="120" height="64" rx="8" fill="#fff" stroke="#546e7a" stroke-width="2"/>
+  <text x="670" y="610" class="b" text-anchor="middle">C_out</text>
+  <text x="670" y="628" class="s" text-anchor="middle">10,000 &#181;F</text>
+  <path d="M730,616 H786" stroke="#546e7a" stroke-width="2.4" marker-end="url(#am)" fill="none"/>
+  <path d="M790,596 h22 v40 h-22 z M812,596 L840,574 V658 L812,636" fill="none" stroke="#212121" stroke-width="2"/>
+  <text x="815" y="678" class="b" text-anchor="middle">SPEAKER R</text>
+  <text x="815" y="694" class="s" text-anchor="middle">8 &#937; &#183; &#8805;92 dB/W/m</text>
+  <path d="M186,616 H296" stroke="#1565c0" stroke-width="2.2" marker-end="url(#ab)" fill="none"/>
+  <circle cx="180" cy="616" r="7" fill="#fff" stroke="#1565c0" stroke-width="2.2"/>
+  <text x="164" y="596" class="s" text-anchor="end" fill="#1565c0">RCA IN R</text>
+
+  <!-- star ground box -->
+  <rect x="920" y="130" width="300" height="200" rx="10" fill="#f5f7fa" stroke="#b0bec5"/>
+  <circle cx="970" cy="180" r="9" fill="#212121"/>
+  <path d="M970,180 L1030,150 M970,180 L1035,180 M970,180 L1030,215 M970,180 L985,240 M970,180 L935,240" stroke="#78909c" stroke-width="1.8"/>
+  <text x="1050" y="158" class="b">STAR GROUND</text>
+  <text x="1050" y="178" class="s">one point, at C_res (&#8722;).</text>
+  <text x="936" y="264" class="s">Every return runs its own wire here:</text>
+  <text x="936" y="282" class="s">PSU &#8722; &#183; both channel grounds &#183; both</text>
+  <text x="936" y="300" class="s">speaker returns &#183; one chassis bond.</text>
+  <text x="936" y="318" class="s" font-weight="700">Never daisy-chain grounds.</text>
+
+  <!-- legend -->
+  <rect x="920" y="360" width="300" height="150" rx="10" fill="#f5f7fa" stroke="#b0bec5"/>
+  <text x="936" y="386" class="b" font-size="14">Arrow key</text>
+  <path d="M936,404 h40" stroke="#b71c1c" stroke-width="2.6"/><text x="986" y="409" class="s">mains / clean DC rail</text>
+  <path d="M936,428 h40" stroke="#546e7a" stroke-width="2.4"/><text x="986" y="433" class="s">raw AC / DC power flow</text>
+  <path d="M936,452 h40" stroke="#1565c0" stroke-width="2.2"/><text x="986" y="457" class="s">audio signal (line level)</text>
+  <rect x="936" y="468" width="10" height="26" fill="#cfd8dc" stroke="#78909c"/><text x="986" y="486" class="s">heatsink (Fig. 7 for sizing)</text>
+
+  <!-- numbers strip -->
+  <rect x="920" y="540" width="300" height="124" rx="10" fill="#eef4fb" stroke="#90a4ae"/>
+  <text x="936" y="566" class="b" font-size="14">Headline numbers (honest)</text>
+  <text x="936" y="588" class="s">&#8776;5.5 W/ch into 8 &#937; at clipping</text>
+  <text x="936" y="606" class="s">Gain &#8776;19 dB &#183; full power from &#8776;0.7 V rms</text>
+  <text x="936" y="624" class="s">&#8776;95 W from the wall, all the time</text>
+  <text x="936" y="642" class="s">Bandwidth &#8776;2 Hz &#8211; &gt;100 kHz (&#8722;3 dB)</text>
+
+  <!-- title block -->
+  <rect x="60" y="700" width="1160" height="52" fill="#fff" stroke="#37474f" stroke-width="1.6"/>
+  <path d="M420,700 V752 M860,700 V752 M1060,700 V752" stroke="#37474f" stroke-width="1.2"/>
+  <text x="76" y="732" font-size="16" font-weight="700" fill="#123a5f">SONUS MINIMAL — SE Class A 5 W</text>
+  <text x="436" y="724" font-size="13" fill="#37474f">Fig. 1 — System block diagram (rev A)</text>
+  <text x="436" y="742" font-size="13" fill="#37474f">Supersedes 01_system_block.png</text>
+  <text x="876" y="732" font-size="13" fill="#37474f">Sheet 1/1</text>
+  <text x="1076" y="732" font-size="13" fill="#37474f">2026-07-03 &#183; &#167;1</text>
+</svg>

@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1420 940" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    text{font-family:Helvetica,Arial,sans-serif;fill:#1a1a1a}
+    .w{stroke:#212121;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .ref{font-weight:700;font-size:15.5px;fill:#0d47a1}
+    .val{font-size:14px;fill:#37474f}
+    .dc{font-size:14px;font-style:italic;font-weight:600;fill:#ad1457}
+    .node{font-size:15px;font-weight:700;fill:#00695c}
+    .note{font-size:13px;fill:#455a64}
+    .ttl{font-size:23px;font-weight:700;fill:#123a5f}
+    .warn{font-size:14px;font-weight:700;fill:#b71c1c}
+    .tp{font-size:11.5px;font-weight:700;fill:#e65100}
+  </style>
+  <defs>
+    <g id="resV"><path class="w" d="M0,0 L0,12 L7,16 L-7,24 L7,32 L-7,40 L7,48 L0,52 L0,64"/></g>
+    <g id="resH"><path class="w" d="M0,0 L12,0 L16,7 L24,-7 L32,7 L40,-7 L48,7 L52,0 L64,0"/></g>
+    <g id="capV"><path class="w" d="M0,0 V27 M-13,27 H13 M-13,37 H13 M0,37 V64"/></g>
+    <g id="cpolV"><path class="w" d="M0,0 V27 M-13,27 H13 M0,39 V64 M-13,43 Q0,33 13,43"/><path class="w" d="M-24,12 h9 M-19.5,7.5 v9" stroke-width="1.6"/></g>
+    <g id="capH"><path class="w" d="M0,0 H27 M27,-13 V13 M37,-13 V13 M37,0 H64"/></g>
+    <g id="cpolH"><path class="w" d="M0,0 H27 M27,-13 V13 M39,0 H64 M43,-13 Q33,0 43,13"/></g>
+    <g id="nmos">
+      <path class="w" d="M-26,0 H-10 M-10,-13 V13 M-3,-15 V15 M-3,-11 H12 M12,-11 V-30 M-3,11 H12 M12,11 V30"/>
+      <polygon points="-3,11 7,7 7,15" fill="#212121"/>
+    </g>
+    <g id="gnd"><path class="w" d="M0,0 V9 M-12,9 H12 M-7.5,14.5 H7.5 M-3,20 H3"/></g>
+    <g id="dot"><circle r="4" fill="#212121"/></g>
+    <g id="term"><circle r="5.5" fill="#fff" stroke="#212121" stroke-width="2.2"/></g>
+    <g id="tpad"><circle r="5" fill="#fff8f0" stroke="#e65100" stroke-width="2"/></g>
+    <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#b71c1c"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="1420" height="940" fill="#ffffff"/>
+  <text x="60" y="46" class="ttl">Fig. 2 — Channel Schematic (one of two identical channels) · rev A (resolved)</text>
+  <text x="60" y="70" class="note">Single-ended Class A · Q1 common-source gain (bottom) · Q2 bootstrapped current source (top) · both carry the same 1.4 A standing current</text>
+
+  <!-- legend box -->
+  <rect x="1010" y="84" width="356" height="86" rx="8" fill="#f5f7fa" stroke="#b0bec5"/>
+  <text x="1026" y="106" class="note">&#9679; dot = connected &#183; a crossing <tspan font-weight="700">without</tspan> a dot = NOT connected</text>
+  <text x="1026" y="126" class="dc">pink italic = expected DC voltage to GND, no signal, warm</text>
+  <text x="1026" y="146" class="tp">TPx = test point — leave a probe loop here on the board</text>
+  <text x="1026" y="163" class="note">&#9312;&#9313;&#9314; = design changes vs. handoff — see change notes below</text>
+
+  <!-- ============ RAIL (y=110) ============ -->
+  <use href="#term" x="110" y="110"/>
+  <text x="96" y="92" class="node" fill="#b71c1c">+RAIL</text>
+  <text x="60" y="134" class="dc">&#8776; +22.3 V (from PSU — Fig. 3)</text>
+  <path class="w" d="M116,110 H1000" stroke="#b71c1c" stroke-width="2.5"/>
+  <use href="#dot" x="320" y="110"/><use href="#dot" x="522" y="110"/><use href="#dot" x="880" y="110"/><use href="#dot" x="960" y="110"/>
+  <use href="#tpad" x="660" y="110"/><text x="648" y="96" class="tp">TP1</text>
+
+  <!-- rail local bypass -->
+  <use href="#cpolV" x="880" y="130"/><path class="w" d="M880,110 V130 M880,194 V206"/><use href="#gnd" x="880" y="206"/>
+  <text x="846" y="156" class="ref" text-anchor="end">C_rail</text><text x="846" y="173" class="val" text-anchor="end">470 &#181;F 50 V</text>
+  <use href="#capV" x="960" y="130"/><path class="w" d="M960,110 V130 M960,194 V206"/><use href="#gnd" x="960" y="206"/>
+  <text x="924" y="252" class="ref">C_rail_byp</text><text x="1008" y="252" class="val">100 nF film</text>
+
+  <!-- ============ BIAS DIVIDER (x=320) ============ -->
+  <use href="#resV" x="320" y="130"/><path class="w" d="M320,194 V250"/>
+  <text x="306" y="158" class="ref" text-anchor="end">Rb_top</text><text x="306" y="175" class="val" text-anchor="end">47 k</text>
+  <use href="#dot" x="320" y="250"/>
+  <text x="330" y="232" class="dc">VBIAS2 &#8776; +15.0 V</text>
+  <use href="#resV" x="320" y="266"/>
+  <text x="336" y="290" class="ref">RV_bias</text><text x="336" y="307" class="val">10 k 25-turn (rheostat)</text>
+  <path class="w" d="M348,326 L306,282" marker-end="none"/><polygon points="306,282 316,285 309,292" fill="#212121"/>
+  <path class="w" d="M320,330 V352"/>
+  <use href="#resV" x="320" y="352"/><path class="w" d="M320,416 V430"/>
+  <text x="336" y="378" class="ref">Rb_bot</text><text x="336" y="395" class="val">22 k &#9312; (select — Table 4.3)</text>
+  <use href="#dot" x="320" y="430"/>
+
+  <!-- bootstrap caps to OUT_NODE -->
+  <path class="w" d="M320,250 H170"/>
+  <use href="#dot" x="230" y="250"/>
+  <use href="#cpolV" x="230" y="268"/><path class="w" d="M230,332 V430"/><use href="#dot" x="230" y="430"/>
+  <text x="196" y="232" class="val" text-anchor="middle"><tspan class="ref">Cb_filt</tspan> &#160;100 &#181;F (+ up)</text>
+  <use href="#capV" x="170" y="268"/><path class="w" d="M170,332 V430"/>
+  <text x="156" y="352" class="ref" text-anchor="end">Cb_byp</text><text x="156" y="369" class="val" text-anchor="end">1 &#181;F film</text>
+  <text x="46" y="466" class="note">&#9314; both caps return to</text>
+  <text x="46" y="483" class="note">OUT_NODE, <tspan font-weight="700">not GND</tspan> —</text>
+  <text x="46" y="500" class="note">this bootstrap makes Q2</text>
+  <text x="46" y="517" class="note">a current source at audio</text>
+
+  <!-- ============ Q2 (top) ============ -->
+  <use href="#tpad" x="366" y="250"/><text x="356" y="272" class="tp">TP2</text>
+  <path class="w" d="M320,250 H404"/>
+  <use href="#resH" x="404" y="250"/><path class="w" d="M468,250 H484"/>
+  <text x="436" y="281" class="val" text-anchor="middle"><tspan class="ref">R_g2</tspan> &#160;100 &#937;</text>
+  <use href="#nmos" x="510" y="250"/>
+  <path class="w" d="M522,220 V110"/>
+  <text x="560" y="238" class="ref">Q2 &#160;IRFP150N</text>
+  <text x="560" y="256" class="val">upper: follower / bootstrapped current source</text>
+  <text x="560" y="273" class="note">TO-247 on heatsink &#183; tab = DRAIN = +rail — insulate!</text>
+  <path class="w" d="M522,280 V296"/>
+  <text x="540" y="300" class="dc">&#8776; +11.7 V</text>
+  <use href="#resV" x="522" y="296"/><path class="w" d="M522,360 V430"/>
+  <text x="545" y="326" class="ref">R_s2</text><text x="545" y="343" class="val">0.47 &#937; 3 W</text>
+  <path class="w" d="M530,150 V190" stroke="#b71c1c" marker-end="url(#arr)"/>
+  <text x="540" y="176" class="dc">1.40 A</text>
+
+  <!-- ============ OUT_NODE (y=430) ============ -->
+  <path class="w" d="M170,430 H940" stroke-width="2.5"/>
+  <use href="#dot" x="522" y="430"/><use href="#dot" x="640" y="430"/><use href="#dot" x="760" y="430"/><use href="#dot" x="920" y="430"/>
+  <text x="575" y="412" class="node">OUT_NODE</text>
+  <text x="672" y="412" class="dc">&#8776; +11.0 V (&#189; rail)</text>
+  <use href="#tpad" x="700" y="430"/><text x="688" y="452" class="tp">TP3</text>
+
+  <!-- ============ Q1 (bottom) ============ -->
+  <use href="#nmos" x="510" y="560"/>
+  <path class="w" d="M522,530 V430"/>
+  <text x="560" y="548" class="ref">Q1 &#160;IRFP150N</text>
+  <text x="560" y="566" class="val">lower: common-source gain</text>
+  <text x="560" y="583" class="note">TO-247 on heatsink &#183; tab = DRAIN = OUT_NODE — insulate!</text>
+  <path class="w" d="M522,590 V606"/>
+  <use href="#tpad" x="522" y="598"/><text x="536" y="602" class="tp">TP4</text>
+  <use href="#resV" x="522" y="606"/><path class="w" d="M522,670 V684"/><use href="#gnd" x="522" y="684"/>
+  <text x="545" y="632" class="ref">R_s1</text><text x="545" y="649" class="val">0.47 &#937; 3 W</text>
+  <text x="545" y="670" class="dc">0.658 V here = 1.40 A</text>
+  <path class="w" d="M530,626 V666" stroke="#b71c1c" marker-end="url(#arr)" display="none"/>
+
+  <!-- ============ INPUT ============ -->
+  <use href="#term" x="90" y="560"/>
+  <text x="66" y="542" class="node" fill="#1b5e20">IN</text>
+  <text x="46" y="592" class="note">line level, from</text>
+  <text x="46" y="608" class="note">source / volume pot</text>
+  <path class="w" d="M96,560 H140"/>
+  <use href="#capH" x="140" y="560"/>
+  <text x="172" y="538" class="ref" text-anchor="middle">C_in</text><text x="172" y="588" class="val" text-anchor="middle">2.2 &#181;F film</text>
+  <path class="w" d="M204,560 H330"/>
+  <use href="#dot" x="250" y="560"/>
+  <text x="258" y="548" class="dc">G1 &#8776; +4.06 V</text>
+  <use href="#resV" x="250" y="576"/><path class="w" d="M250,640 V652"/><use href="#gnd" x="250" y="652"/>
+  <text x="236" y="602" class="ref" text-anchor="end">R_in</text><text x="236" y="619" class="val" text-anchor="end">47 k</text>
+  <!-- R_fb -->
+  <path class="w" d="M250,560 V490 H330"/>
+  <use href="#resH" x="330" y="490"/>
+  <text x="362" y="472" class="ref" text-anchor="middle">R_fb 82 k &#9313;</text>
+  <path class="w" d="M394,490 H514 M530,490 H640 M640,490 V430"/>
+  <path class="w" d="M514,490 A8,8 0 0 1 530,490" fill="none"/>
+  <text x="452" y="510" class="val">DC + light AC feedback</text>
+  <!-- R_gs -->
+  <use href="#resH" x="330" y="560"/>
+  <text x="362" y="590" class="ref" text-anchor="middle">R_gs</text><text x="362" y="606" class="val" text-anchor="middle">220 &#937;</text>
+  <path class="w" d="M394,560 H484"/>
+
+  <!-- ============ ZOBEL ============ -->
+  <path class="w" d="M760,430 V450"/>
+  <use href="#resV" x="760" y="450"/>
+  <text x="778" y="476" class="ref">R_z</text><text x="778" y="493" class="val">10 &#937; 2 W</text>
+  <path class="w" d="M760,514 V522"/>
+  <use href="#capV" x="760" y="522"/>
+  <text x="778" y="548" class="ref">C_z</text><text x="778" y="565" class="val">100 nF film</text>
+  <path class="w" d="M760,586 V596"/><use href="#gnd" x="760" y="596"/>
+  <text x="700" y="646" class="note">Zobel &#9313; — keeps the amp loaded at HF;</text>
+  <text x="700" y="662" class="note">stability insurance with any cable/speaker</text>
+
+  <!-- ============ OUTPUT ============ -->
+  <use href="#cpolH" x="940" y="430"/>
+  <text x="972" y="472" class="ref" text-anchor="middle">C_out</text><text x="972" y="489" class="val" text-anchor="middle">10,000 &#181;F 50 V (+ left)</text>
+  <path class="w" d="M920,430 V376 H932"/>
+  <use href="#capH" x="932" y="376"/>
+  <path class="w" d="M996,376 H1020 V430"/>
+  <use href="#dot" x="1020" y="430"/>
+  <text x="972" y="356" class="ref" text-anchor="middle">C_out_byp 1 &#181;F film</text>
+  <path class="w" d="M1004,430 H1144"/>
+  <use href="#dot" x="1060" y="430"/>
+  <text x="1082" y="412" class="dc">0 V DC (&#177;20 mV)</text>
+  <use href="#resV" x="1060" y="446"/>
+  <text x="1076" y="472" class="ref">R_dc</text><text x="1076" y="489" class="val">100 &#937; 2 W</text>
+  <path class="w" d="M1060,510 V520"/>
+  <use href="#term" x="1150" y="430"/>
+  <text x="1160" y="462" class="node" fill="#b71c1c">J_spk +</text>
+  <!-- speaker -->
+  <path class="w" d="M1156,430 H1210"/>
+  <path class="w" d="M1210,412 h20 v36 h-20 z M1230,412 L1256,392 V468 L1230,448"/>
+  <text x="1288" y="420" class="val">Speaker 8 &#937;</text>
+  <text x="1288" y="437" class="note">&#8805; 92 dB/W/m</text>
+  <path class="w" d="M1220,448 V520 H1156"/>
+  <use href="#term" x="1150" y="520"/>
+  <text x="1136" y="546" class="node">J_spk &#8722;</text>
+  <path class="w" d="M1144,520 H900"/>
+  <use href="#dot" x="1060" y="520"/>
+  <path class="w" d="M900,520 V528"/><use href="#gnd" x="900" y="528"/>
+  <text x="900" y="604" class="note" text-anchor="middle">speaker return lands on STAR GND</text>
+
+  <!-- bias callout -->
+  <rect x="640" y="690" width="500" height="58" rx="9" fill="#fdecec" stroke="#b71c1c" stroke-width="1.6"/>
+  <text x="660" y="714" class="warn">BIAS: trim RV_bias until V(TP4&#8594;GND) across R_s1 = 0.658 V &#8658; 1.40 A.</text>
+  <text x="660" y="735" class="warn">Start with RV_bias at MINIMUM. Re-trim after 30 min warm-up.</text>
+
+  <!-- change notes -->
+  <rect x="60" y="760" width="1080" height="88" rx="9" fill="#f5f7fa" stroke="#b0bec5"/>
+  <text x="76" y="784" class="note">&#9312; Rb_bot 10 k &#8594; 22 k (default; select 18 k / 22 k / 33 k from measured V_GS — Table 4.3). With the divider returned to OUT_NODE this centres the trim range for the IRFP150N. (ECR-2)</text>
+  <text x="76" y="804" class="note">&#9313; R_fb 47 k &#8594; 82 k re-centres OUT_NODE at &#189; rail for the IRFP150N&#8217;s lower V_GS; Zobel R_z + C_z added for HF stability margin. (ECR-2, ECR-8)</text>
+  <text x="76" y="824" class="note">&#9314; Cb_filt / Cb_byp bootstrap to OUT_NODE is what turns Q2 into a quiet current source — wiring them to GND instead is the #1 way to build a &#8220;working&#8221; amp with no gain.</text>
+  <text x="76" y="841" class="note">Expected DC map with a 22.3 V rail and matched FETs. Your OUT_NODE may sit anywhere in 10.3–12.3 V depending on V_GS — that is normal and correct (see &#167;4.2).</text>
+
+  <!-- title block -->
+  <g>
+    <rect x="60" y="866" width="1300" height="52" fill="#ffffff" stroke="#37474f" stroke-width="1.6"/>
+    <path d="M420,866 V918 M900,866 V918 M1160,866 V918" stroke="#37474f" stroke-width="1.2"/>
+    <text x="76" y="898" font-size="16" font-weight="700" fill="#123a5f">SONUS MINIMAL — SE Class A 5 W</text>
+    <text x="436" y="890" font-size="13" fill="#37474f">Fig. 2 — Channel schematic, resolved values (rev A)</text>
+    <text x="436" y="908" font-size="13" fill="#37474f">Supersedes 02_channel_schematic.png (IRFP240-era labels)</text>
+    <text x="916" y="898" font-size="13" fill="#37474f">Scale: none &#183; Sheet 1/1</text>
+    <text x="1176" y="898" font-size="13" fill="#37474f">2026-07-03 &#183; LABBOOK &#167;4</text>
+  </g>
+</svg>

@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 860" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    text{font-family:Helvetica,Arial,sans-serif;fill:#1a1a1a}
+    .w{stroke:#212121;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .ref{font-weight:700;font-size:15.5px;fill:#0d47a1}
+    .val{font-size:14px;fill:#37474f}
+    .dc{font-size:14px;font-style:italic;font-weight:600;fill:#ad1457}
+    .node{font-size:15px;font-weight:700;fill:#00695c}
+    .note{font-size:13px;fill:#455a64}
+    .ttl{font-size:23px;font-weight:700;fill:#123a5f}
+    .warn{font-size:14px;font-weight:700;fill:#b71c1c}
+  </style>
+  <defs>
+    <g id="resV"><path class="w" d="M0,0 L0,12 L7,16 L-7,24 L7,32 L-7,40 L7,48 L0,52 L0,64"/></g>
+    <g id="resH"><path class="w" d="M0,0 L12,0 L16,7 L24,-7 L32,7 L40,-7 L48,7 L52,0 L64,0"/></g>
+    <g id="cpolV"><path class="w" d="M0,0 V27 M-13,27 H13 M0,39 V64 M-13,43 Q0,33 13,43"/><path class="w" d="M-24,12 h9 M-19.5,7.5 v9" stroke-width="1.6"/></g>
+    <g id="npn"><circle cx="8" cy="0" r="21" class="w"/><path class="w" d="M-24,0 H-2 M-2,-14 V14 M-2,-6 L14,-15 M14,-15 V-32 M-2,6 L14,15 M14,15 V32"/><polygon points="14,15 5.5,13.5 9.5,7" fill="#212121"/></g>
+    <g id="gnd"><path class="w" d="M0,0 V9 M-12,9 H12 M-7.5,14.5 H7.5 M-3,20 H3"/></g>
+    <g id="chassis"><path class="w" d="M0,0 V8 M-14,8 H14 M-14,8 L-20,16 M-4,8 L-10,16 M6,8 L0,16 M14,8 L8,16"/></g>
+    <g id="dot"><circle r="4" fill="#212121"/></g>
+    <g id="pdot"><circle r="3.4" fill="#b71c1c"/></g>
+    <g id="term"><circle r="5.5" fill="#fff" stroke="#212121" stroke-width="2.2"/></g>
+  </defs>
+
+  <rect x="0" y="0" width="1560" height="860" fill="#ffffff"/>
+  <text x="60" y="46" class="ttl">Fig. 3 — Power Supply (one per stereo amp) · rev A — Darlington capacitance multiplier</text>
+  <text x="60" y="70" class="note">120 V / 60 Hz build &#183; delivers +22.3 V at 2.8 A to both channels &#183; ripple &#8776;1.2 V pp at the reservoir &#8594; &lt;5 mV pp at the rail</text>
+
+  <!-- ================= MAINS ZONE ================= -->
+  <rect x="60" y="110" width="340" height="450" rx="10" fill="#fff5f5" stroke="#b71c1c" stroke-width="1.8" stroke-dasharray="9 6"/>
+  <text x="72" y="136" class="warn">&#9888; MAINS ZONE — LETHAL VOLTAGES</text>
+  <text x="72" y="154" class="note">heat-shrink every joint &#183; strain-relieve the cord</text>
+
+  <!-- IEC module -->
+  <rect x="80" y="220" width="130" height="200" rx="6" fill="#ffffff" stroke="#212121" stroke-width="2"/>
+  <text x="145" y="248" class="ref" text-anchor="middle">J_mains</text>
+  <text x="145" y="266" class="val" text-anchor="middle">IEC C14 inlet</text>
+  <text x="145" y="284" class="val" text-anchor="middle">fused + switched</text>
+  <text x="145" y="308" class="val" text-anchor="middle"><tspan class="ref">F1</tspan> 2 A slow-blow</text>
+  <text x="145" y="326" class="note" text-anchor="middle">(5&#215;20 mm, in drawer)</text>
+  <text x="198" y="255" class="note" text-anchor="end">L</text>
+  <text x="198" y="375" class="note" text-anchor="end">N</text>
+  <text x="152" y="408" class="note">E</text>
+  <!-- E to chassis -->
+  <path class="w" d="M145,420 V470" stroke="#2e7d32"/>
+  <use href="#chassis" x="145" y="470"/>
+  <text x="145" y="516" class="warn" text-anchor="middle">PROTECTIVE EARTH</text>
+  <text x="145" y="534" class="note" text-anchor="middle">to bare chassis metal at the inlet —</text>
+  <text x="145" y="551" class="note" text-anchor="middle">its own bolt + star washer</text>
+
+  <!-- NTC -->
+  <path class="w" d="M210,260 H240"/>
+  <use href="#resH" x="240" y="260"/>
+  <path class="w" d="M240,282 L304,240" stroke-width="1.6"/>
+  <text x="272" y="222" class="val" text-anchor="middle"><tspan class="ref">RT1</tspan> CL-60 NTC &#9315;</text>
+  <text x="272" y="296" class="note" text-anchor="middle">inrush limiter</text>
+  <path class="w" d="M304,260 H360"/>
+  <!-- N wire -->
+  <path class="w" d="M210,380 H360"/>
+
+  <!-- T1 -->
+  <text x="380" y="180" class="val" text-anchor="middle"><tspan class="ref">T1</tspan> — Hammond 1182G18, 225 VA toroid</text>
+  <text x="380" y="198" class="note" text-anchor="middle">120 V: both primaries in PARALLEL — wiring table &#167;B.2</text>
+  <path class="w" d="M360,260 V268 M360,372 V380"/>
+  <path class="w" d="M360,268 A10,13 0 0 1 360,294 A10,13 0 0 1 360,320 A10,13 0 0 1 360,346 A10,13 0 0 1 360,372"/>
+  <path class="w" d="M386,240 V400 M392,240 V400" stroke-width="2.2"/>
+  <!-- secondary A -->
+  <path class="w" d="M418,250 V258 M418,302 V310"/>
+  <path class="w" d="M418,258 A9,11 0 0 0 418,280 A9,11 0 0 0 418,302"/>
+  <!-- secondary B -->
+  <path class="w" d="M418,340 V348 M418,392 V400"/>
+  <path class="w" d="M418,348 A9,11 0 0 0 418,370 A9,11 0 0 0 418,392"/>
+  <use href="#pdot" x="428" y="252"/><use href="#pdot" x="428" y="342"/>
+
+  <!-- secondary parallel joins -->
+  <path class="w" d="M418,250 H530 M418,340 H500 M500,340 V250"/>
+  <use href="#dot" x="500" y="250"/>
+  <path class="w" d="M418,310 H470 M418,400 H530 M470,310 V400"/>
+  <use href="#dot" x="470" y="400"/>
+  <text x="505" y="232" class="dc" text-anchor="middle">&#8776;18.6 VAC</text>
+  <text x="380" y="446" class="warn" text-anchor="middle">secondaries PARALLELED — run the phasing test (&#167;B.4) BEFORE connecting!</text>
+
+  <!-- BR1 -->
+  <rect x="530" y="230" width="120" height="190" rx="6" fill="#ffffff" stroke="#212121" stroke-width="2"/>
+  <text x="590" y="292" class="ref" text-anchor="middle">BR1</text>
+  <text x="590" y="310" class="val" text-anchor="middle">KBPC3506</text>
+  <text x="590" y="327" class="val" text-anchor="middle">600 V / 35 A</text>
+  <text x="590" y="352" class="note" text-anchor="middle">bolt to chassis</text>
+  <text x="590" y="367" class="note" text-anchor="middle">floor (= heatsink)</text>
+  <text x="542" y="256" class="note">~</text><text x="542" y="406" class="note">~</text>
+  <text x="632" y="276" class="note">+</text><text x="630" y="386" class="note">&#8722;</text>
+
+  <!-- raw bus -->
+  <path class="w" d="M650,270 H700 V200 H1430" stroke="#b71c1c" stroke-width="2.5"/>
+  <use href="#dot" x="720" y="200"/><use href="#dot" x="800" y="200"/><use href="#dot" x="880" y="200"/><use href="#dot" x="1000" y="200"/><use href="#dot" x="1144" y="200"/><use href="#dot" x="1274" y="200"/><use href="#dot" x="1360" y="200"/>
+  <text x="760" y="178" class="val" text-anchor="middle"><tspan class="ref">C_res</tspan> — 2 &#215; 10,000 &#181;F 50 V (&#8776;20 mF)</text>
+  <text x="1050" y="178" class="dc" text-anchor="middle">RAW &#8776; +24.2 V &#183; 1.2 V pp ripple at 2.8 A</text>
+
+  <!-- minus to gnd bus -->
+  <path class="w" d="M650,380 H680 V560 H1480"/>
+  <use href="#dot" x="720" y="560"/><use href="#dot" x="800" y="560"/><use href="#dot" x="880" y="560"/><use href="#dot" x="1000" y="560"/><use href="#dot" x="820" y="560"/>
+
+  <!-- reservoir caps + bleeder -->
+  <path class="w" d="M720,200 V220"/><use href="#cpolV" x="720" y="220"/><path class="w" d="M720,284 V560"/>
+  <path class="w" d="M800,200 V220"/><use href="#cpolV" x="800" y="220"/><path class="w" d="M800,284 V560"/>
+  <path class="w" d="M880,200 V220"/><use href="#resV" x="880" y="220"/><path class="w" d="M880,284 V560"/>
+  <text x="894" y="246" class="ref">R_bleed</text>
+  <text x="894" y="264" class="val">4.7 k 2 W</text>
+  <text x="894" y="282" class="note">safe in ~5 min</text>
+
+  <!-- cap multiplier -->
+  <path class="w" d="M1000,200 V220"/><use href="#resV" x="1000" y="220"/><path class="w" d="M1000,284 V330"/>
+  <text x="1014" y="240" class="ref">R_cm</text>
+  <text x="1014" y="258" class="val">220 &#937; 2 W</text>
+  <use href="#dot" x="1000" y="330"/>
+  <path class="w" d="M1000,330 V350"/><use href="#cpolV" x="1000" y="350"/><path class="w" d="M1000,414 V560"/>
+  <text x="1014" y="384" class="ref">C_cm</text>
+  <text x="1014" y="402" class="val">2200 &#181;F 50 V &#9313;</text>
+  <text x="1014" y="300" class="dc">&#8776; +24.1 V</text>
+  <text x="1014" y="318" class="note">clean, &#964; &#8776; 0.5 s</text>
+  <!-- BD139 -->
+  <path class="w" d="M1000,330 H1106"/>
+  <use href="#npn" x="1130" y="330"/>
+  <path class="w" d="M1144,298 V200"/>
+  <path class="w" d="M1144,362 V382 H1236"/>
+  <text x="1164" y="322" class="val"><tspan class="ref">Q_d</tspan> BD139 &#9312;</text>
+  <!-- R_be -->
+  <use href="#dot" x="1220" y="382"/>
+  <path class="w" d="M1220,382 V394"/><use href="#resV" x="1220" y="394"/><path class="w" d="M1220,458 V470 H1250 V440"/>
+  <use href="#dot" x="1250" y="440"/>
+  <text x="1206" y="420" class="ref" text-anchor="end">R_be</text>
+  <text x="1206" y="438" class="val" text-anchor="end">2.2 k &#9312;</text>
+  <!-- MJE15032 -->
+  <use href="#npn" x="1260" y="382"/>
+  <path class="w" d="M1274,350 V200"/>
+  <path class="w" d="M1274,414 V440"/>
+  <path d="M1306,506 L1284,402" stroke="#90a4ae" stroke-width="1.4" fill="none"/>
+  <text x="1310" y="512" class="val"><tspan class="ref">Q_cm</tspan> MJE15032G &#9312;</text>
+  <text x="1310" y="530" class="val">drops &#8776;1.6 V &#183; &#8776;4.8 W</text>
+  <text x="1310" y="548" class="note">TO-220 on small heatsink</text>
+  <!-- rail out row -->
+  <path class="w" d="M1250,440 H1474" stroke="#b71c1c" stroke-width="2.5"/>
+  <use href="#dot" x="1274" y="440"/><use href="#dot" x="1360" y="440"/>
+  <!-- D_p -->
+  <path class="w" d="M1360,200 V280 M1346,280 H1374 M1360,304 V440"/>
+  <polygon points="1346,304 1374,304 1360,280" fill="#212121"/>
+  <text x="1382" y="300" class="ref">D_p</text>
+  <text x="1382" y="318" class="val">1N5408 &#9314;</text>
+  <!-- rail out terminal -->
+  <use href="#term" x="1480" y="440"/>
+  <text x="1310" y="468" class="dc">+22.3 V CLEAN RAIL</text>
+  <text x="1310" y="486" class="note">ripple &lt;5 mV &#183; to channels (Fig. 2)</text>
+
+  <!-- star ground -->
+  <circle cx="760" cy="560" r="8" fill="#212121"/>
+  <text x="710" y="592" class="node" text-anchor="end">STAR GROUND (0 V)</text>
+  <text x="710" y="610" class="note" text-anchor="end">every return lands here:</text>
+  <text x="710" y="628" class="note" text-anchor="end">PSU &#8722;, channel grounds, speaker returns</text>
+  <path class="w" d="M820,560 V576" stroke="#2e7d32"/>
+  <use href="#chassis" x="820" y="576"/>
+  <text x="848" y="596" class="note">single chassis bond (M4 + star washer)</text>
+  <!-- gnd out terminal -->
+  <use href="#term" x="1480" y="560"/>
+  <text x="1470" y="588" class="note" text-anchor="end">0 V to channel boards</text>
+  <text x="1470" y="606" class="note" text-anchor="end">one twisted pair per channel</text>
+
+  <!-- change notes -->
+  <rect x="60" y="648" width="1440" height="110" rx="9" fill="#f5f7fa" stroke="#b0bec5"/>
+  <text x="76" y="674" class="note">&#9312; <tspan font-weight="700">Darlington fix (ECR-1):</tspan> a lone MJE15032 at 2.8 A needs ~56 mA of base current, which would drop ~12 V across R_cm and collapse the rail. BD139 in front raises composite &#946; to ~5000,</text>
+  <text x="76" y="692" class="note">so the drop across R_cm is &lt;0.2 V. R_be gives the pass pair a clean turn-off path. Total drop &#8776; 2&#215;V_BE &#8776; 1.6 V.</text>
+  <text x="76" y="712" class="note">&#9313; R_cm &#183; C_cm = 220 &#937; &#183; 2200 &#181;F &#8594; &#964; &#8776; 0.5 s: the rail rises softly over ~1 s at power-on (gentle on the speaker) and 120 Hz ripple is attenuated &#8776; 51 dB at the base node.</text>
+  <text x="76" y="732" class="note">&#9314; D_p clamps Q_cm at power-off, when the rail-side capacitors would otherwise reverse-bias it while the reservoir discharges.  &#9315; CL-60 tames the 225 VA toroid + 20 mF inrush surge (ECR-1).</text>
+  <text x="76" y="750" class="warn">C_res stores &#8776;6 J at 24 V. After power-off: wait 5 minutes, then VERIFY &lt; 2 V across C_res with a DMM before touching anything.</text>
+
+  <!-- title block -->
+  <g>
+    <rect x="60" y="778" width="1440" height="52" fill="#ffffff" stroke="#37474f" stroke-width="1.6"/>
+    <path d="M420,778 V830 M1040,778 V830 M1300,778 V830" stroke="#37474f" stroke-width="1.2"/>
+    <text x="76" y="810" font-size="16" font-weight="700" fill="#123a5f">SONUS MINIMAL — SE Class A 5 W</text>
+    <text x="436" y="802" font-size="13" fill="#37474f">Fig. 3 — Power supply schematic, Darlington capacitance multiplier (rev A)</text>
+    <text x="436" y="820" font-size="13" fill="#37474f">Supersedes 03_power_supply.png (single-BJT multiplier — see ECR-1)</text>
+    <text x="1056" y="810" font-size="13" fill="#37474f">Scale: none &#183; Sheet 1/1</text>
+    <text x="1316" y="810" font-size="13" fill="#37474f">2026-07-03 &#183; LABBOOK &#167;4</text>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+* SONUS MINIMAL - PSU with Darlington capacitance multiplier (rev A / ECR-1)
+* ---------------------------------------------------------------------------
+* Matches Fig. 3 / LABBOOK section 4.  Transformer modelled as an ideal sine
+* behind its winding resistance; load modelled as 8 ohm (= two channels at
+* 1.4 A from ~22.3 V).
+*
+* EXPECTED (steady state, after ~1 s):
+*   V(rawp) mean   ~ 24 V, ripple ~1.2 Vpp at 120 Hz
+*   V(base)        ~ 23.9 V, ripple a few mV (tau = 220R * 2200u ~ 0.5 s)
+*   V(rail) mean   ~ 22.3 V, ripple < 5 mVpp
+*   Q_cm dissipation ~ (V(rawp)-V(rail)) * 2.8 A ~ 5 W
+* ---------------------------------------------------------------------------
+
+* secondary: 18.6 Vrms -> 26.3 Vpk, 60 Hz, ~0.35 ohm effective winding R
+V1   ac1s 0    SIN(0 26.3 60)
+Rw   ac1s ac1  0.35
+* (single equivalent winding; ac2 is the return side of the bridge)
+Vd   ac2  0    DC 0
+
+* --- bridge (KBPC3506-ish) ---
+D1 ac1 rawp DBR
+D2 ac2 rawp DBR
+D3 gndn ac1 DBR
+D4 gndn ac2 DBR
+Vsense gndn 0 DC 0        ; ammeter in the return leg
+
+* --- reservoir + bleeder ---
+Cres1 rawp 0 10000u
+Cres2 rawp 0 10000u
+Rbleed rawp 0 4.7k
+
+* --- Darlington capacitance multiplier (ECR-1) ---
+Rcm  rawp base 220
+Ccm  base 0    2200u
+Qd   rawp base drive BD139
+Qcm  rawp drive rail MJE15032
+Rbe  drive rail 2.2k
+Dp   rail rawp DBR        ; power-off reverse clamp
+
+* --- load: both channels at idle ---
+Rload rail 0 8
+
+.model DBR D(Is=3e-10 Rs=4m N=1.7 BV=600 Cjo=100p)
+.model BD139     NPN(Is=1e-13 Bf=100 Vaf=100 Ikf=1.5 Rb=1 Re=0.1 Cje=100p Cjc=50p Tf=1n)
+.model MJE15032  NPN(Is=5e-13 Bf=70  Vaf=80  Ikf=8   Rb=0.5 Re=0.05 Cje=600p Cjc=300p Tf=5n)
+
+* startup + settle; inspect the last 200 ms for ripple numbers
+.tran 0.2m 1.4 1.2 uic
+.end

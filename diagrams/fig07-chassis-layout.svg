@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 1010" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    text{font-family:Helvetica,Arial,sans-serif;fill:#1a1a1a}
+    .ref{font-weight:700;font-size:14.5px;fill:#0d47a1}
+    .val{font-size:12.5px;fill:#37474f}
+    .note{font-size:13px;fill:#455a64}
+    .ttl{font-size:23px;font-weight:700;fill:#123a5f}
+    .warn{font-size:13px;font-weight:700;fill:#b71c1c}
+    .dim{stroke:#78909c;stroke-width:1.3}
+  </style>
+  <defs>
+    <marker id="ad3" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,4 L8,4 M4,0 L4,8" stroke="#78909c"/></marker>
+    <marker id="ab3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#1565c0"/></marker>
+    <marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#b71c1c"/></marker>
+    <marker id="ac3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#e65100"/></marker>
+  </defs>
+  <rect width="1240" height="1010" fill="#fff"/>
+  <text x="60" y="44" class="ttl">Fig. 7 — Chassis Layout, top view (lid off, rear at top)</text>
+  <text x="60" y="67" class="note">&#8776;320 &#215; 260 &#215; 80 mm plate/box chassis. The single organizing idea: mains lives rear-left, signal lives right+front, and they never run side by side.</text>
+
+  <text x="620" y="112" class="note" text-anchor="middle" letter-spacing="2" font-weight="700" fill="#78909c">REAR PANEL</text>
+
+  <!-- chassis -->
+  <rect x="140" y="120" width="960" height="780" rx="8" fill="#fcfdfe" stroke="#37474f" stroke-width="3"/>
+
+  <!-- heatsinks on side walls -->
+  <rect x="118" y="500" width="30" height="380" fill="#eceff1" stroke="#78909c" stroke-width="2"/>
+  <path d="M104,510 h14 M104,540 h14 M104,570 h14 M104,600 h14 M104,630 h14 M104,660 h14 M104,690 h14 M104,720 h14 M104,750 h14 M104,780 h14 M104,810 h14 M104,840 h14 M104,870 h14" stroke="#78909c" stroke-width="4"/>
+  <rect x="1092" y="500" width="30" height="380" fill="#eceff1" stroke="#78909c" stroke-width="2"/>
+  <path d="M1122,510 h14 M1122,540 h14 M1122,570 h14 M1122,600 h14 M1122,630 h14 M1122,660 h14 M1122,690 h14 M1122,720 h14 M1122,750 h14 M1122,780 h14 M1122,810 h14 M1122,840 h14 M1122,870 h14" stroke="#78909c" stroke-width="4"/>
+  <text x="76" y="700" class="ref" text-anchor="middle" transform="rotate(-90 76 700)">HEATSINK L — 10&#8243; of 10.080&#8243; profile</text>
+  <text x="1164" y="700" class="ref" text-anchor="middle" transform="rotate(90 1164 700)">HEATSINK R — 10&#8243; of 10.080&#8243; profile</text>
+
+  <!-- IEC on rear left -->
+  <rect x="170" y="120" width="115" height="52" fill="#fff5f5" stroke="#b71c1c" stroke-width="2.4"/>
+  <text x="227" y="142" class="ref" text-anchor="middle" fill="#b71c1c">IEC inlet</text>
+  <text x="227" y="160" class="val" text-anchor="middle">fuse + switch</text>
+  <circle cx="320" cy="160" r="7" fill="#2e7d32"/>
+  <text x="340" y="152" class="note" fill="#2e7d32">PE bolt — earth to bare</text>
+  <text x="340" y="168" class="note" fill="#2e7d32">metal RIGHT at the inlet</text>
+
+  <!-- toroid -->
+  <circle cx="330" cy="400" r="165" fill="#fff5f5" stroke="#b71c1c" stroke-width="2.4"/>
+  <circle cx="330" cy="400" r="52" fill="#fff" stroke="#b71c1c" stroke-width="1.6"/>
+  <circle cx="330" cy="400" r="7" fill="#b71c1c"/>
+  <text x="330" y="368" class="ref" text-anchor="middle" fill="#b71c1c">T1 — TOROID</text>
+  <text x="330" y="386" class="val" text-anchor="middle">225 VA &#183; &#216;&#8776;117 mm</text>
+  <text x="330" y="480" class="warn" text-anchor="middle">single center bolt — do NOT create</text>
+  <text x="330" y="496" class="warn" text-anchor="middle">a shorted turn (washer + rubber pads)</text>
+  <path d="M240,176 C230,220 240,240 268,268" stroke="#b71c1c" stroke-width="3" fill="none" marker-end="url(#ar3)"/>
+  <rect x="216" y="210" width="30" height="22" fill="#fff" stroke="#b71c1c" stroke-width="1.6"/>
+  <text x="254" y="226" class="val" fill="#b71c1c">RT1</text>
+
+  <!-- bridge -->
+  <rect x="524" y="256" width="54" height="54" rx="5" fill="#f5f7fa" stroke="#37474f" stroke-width="2"/>
+  <circle cx="551" cy="283" r="6" fill="none" stroke="#37474f" stroke-width="1.6"/>
+  <text x="551" y="330" class="val" text-anchor="middle">BR1 — bolt to floor</text>
+  <path d="M470,330 C495,315 505,305 520,296" stroke="#e65100" stroke-width="2.6" fill="none" marker-end="url(#ac3)"/>
+
+  <!-- PSU board -->
+  <rect x="620" y="180" width="300" height="220" rx="6" fill="#fdf7f0" stroke="#e65100" stroke-width="2"/>
+  <text x="770" y="240" class="ref" text-anchor="middle">PSU BOARD (Fig. 6)</text>
+  <text x="770" y="260" class="val" text-anchor="middle">reservoirs &#183; multiplier</text>
+  <text x="770" y="280" class="val" text-anchor="middle">standoffs, &#8805;10 mm</text>
+  <path d="M582,283 C600,283 605,283 616,283" stroke="#e65100" stroke-width="2.6" fill="none" marker-end="url(#ac3)"/>
+  <!-- star -->
+  <circle cx="770" cy="420" r="10" fill="#212121"/>
+  <text x="795" y="416" class="ref" fill="#1b5e20">STAR GROUND</text>
+  <text x="795" y="434" class="note">(on the PSU board — Fig. 6)</text>
+  <path d="M790,438 L820,462" stroke="#2e7d32" stroke-width="2"/>
+  <path d="M820,462 v10 M812,472 h16 M815,477 h10 M818,482 h4" stroke="#2e7d32" stroke-width="2" fill="none"/>
+  <text x="842" y="476" class="note" fill="#2e7d32">chassis bond (the ONLY one)</text>
+
+  <!-- channel boards -->
+  <rect x="200" y="580" width="220" height="180" rx="6" fill="#f0f7f0" stroke="#2e7d32" stroke-width="2"/>
+  <text x="310" y="640" class="ref" text-anchor="middle" fill="#1b5e20">CHANNEL L</text>
+  <text x="310" y="660" class="val" text-anchor="middle">board (Fig. 5)</text>
+  <text x="310" y="680" class="val" text-anchor="middle">FETs fly to left sink</text>
+  <rect x="820" y="580" width="220" height="180" rx="6" fill="#f0f7f0" stroke="#2e7d32" stroke-width="2"/>
+  <text x="930" y="640" class="ref" text-anchor="middle" fill="#1b5e20">CHANNEL R</text>
+  <text x="930" y="660" class="val" text-anchor="middle">board (Fig. 5)</text>
+  <text x="930" y="680" class="val" text-anchor="middle">FETs fly to right sink</text>
+
+  <!-- C_out -->
+  <circle cx="490" cy="700" r="48" fill="#fff" stroke="#37474f" stroke-width="2"/>
+  <text x="490" y="694" class="ref" text-anchor="middle">C_out L</text>
+  <text x="490" y="712" class="val" text-anchor="middle">clamped</text>
+  <circle cx="750" cy="700" r="48" fill="#fff" stroke="#37474f" stroke-width="2"/>
+  <text x="750" y="694" class="ref" text-anchor="middle">C_out R</text>
+  <text x="750" y="712" class="val" text-anchor="middle">clamped</text>
+
+  <!-- DC twisted pairs -->
+  <path d="M660,404 C560,470 460,540 400,576" stroke="#b71c1c" stroke-width="2.4" fill="none" stroke-dasharray="2 5" marker-end="url(#ar3)"/>
+  <path d="M880,404 C910,470 930,520 934,576" stroke="#b71c1c" stroke-width="2.4" fill="none" stroke-dasharray="2 5" marker-end="url(#ar3)"/>
+  <text x="560" y="520" class="val" fill="#b71c1c" transform="rotate(-33 560 520)">RAIL + 0 V twisted pair</text>
+
+  <!-- rear connectors -->
+  <circle cx="960" cy="146" r="13" fill="#eef4fb" stroke="#1565c0" stroke-width="2.4"/>
+  <circle cx="1005" cy="146" r="13" fill="#eef4fb" stroke="#1565c0" stroke-width="2.4"/>
+  <text x="983" y="185" class="val" text-anchor="middle" fill="#1565c0">RCA in R &#183; L</text>
+  <circle cx="620" cy="146" r="9" fill="#ffcdd2" stroke="#b71c1c" stroke-width="2"/>
+  <circle cx="650" cy="146" r="9" fill="#eceff1" stroke="#37474f" stroke-width="2"/>
+  <text x="635" y="180" class="val" text-anchor="middle">SPK L</text>
+  <circle cx="700" cy="146" r="9" fill="#ffcdd2" stroke="#b71c1c" stroke-width="2"/>
+  <circle cx="730" cy="146" r="9" fill="#eceff1" stroke="#37474f" stroke-width="2"/>
+  <text x="715" y="180" class="val" text-anchor="middle">SPK R</text>
+
+  <!-- signal routes -->
+  <path d="M960,162 C960,240 966,420 966,540 C966,556 952,566 944,576" stroke="#1565c0" stroke-width="2.2" fill="none" marker-end="url(#ab3)"/>
+  <path d="M1005,162 C1010,300 1016,560 1016,720 C1016,800 990,840 900,844 L420,844 C380,844 340,820 330,764" stroke="#1565c0" stroke-width="2.2" fill="none" marker-end="url(#ab3)"/>
+  <text x="1040" y="620" class="val" fill="#1565c0" transform="rotate(90 1040 620)">signal: right wall &#8594; front</text>
+  <text x="660" y="864" class="val" fill="#1565c0">L input runs along the FRONT — never beside mains</text>
+
+  <!-- distance callout -->
+  <path class="dim" d="M478,330 L946,158" marker-start="url(#ad3)" marker-end="url(#ad3)" stroke-dasharray="5 5"/>
+  <text x="740" y="212" class="warn" transform="rotate(-20 740 212)">&#8805;300 mm toroid &#8594; RCA</text>
+
+  <text x="620" y="884" class="note" text-anchor="middle" letter-spacing="2" font-weight="700" fill="#78909c">FRONT — nothing here but an (optional) LED</text>
+
+  <!-- notes -->
+  <rect x="60" y="916" width="1120" height="52" rx="9" fill="#f5f7fa" stroke="#b0bec5"/>
+  <text x="76" y="938" class="note">&#9312; heatsinks are the side walls: fins OUTSIDE, vertical, free air above and below (&#8805;10 mm feet) &#9313; speaker wiring (posts&#8594;boards) may take any route — it is low-impedance and robust</text>
+  <text x="76" y="958" class="note">&#9314; every wire that crosses the mains zone is either mains itself or absent &#9315; C_out caps clamp to the floor beside their boards; keep them off the heatsinks (electrolytics hate heat)</text>
+
+  <!-- title block -->
+  <rect x="60" y="976" width="1120" height="0" fill="none"/>
+  <text x="60" y="998" font-size="13" fill="#37474f">SONUS MINIMAL &#183; Fig. 7 — Chassis layout, top view &#183; rev A &#183; 2026-07-03 &#183; LABBOOK Phase D/G</text>
+</svg>

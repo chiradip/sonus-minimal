@@ -1,0 +1,39 @@
+Quantity,Manufacturer Part Number,Customer Reference,Description,Qty per amp (stereo),Alternate MPN,Notes
+20,IRFP150NPBF,"Q1,Q2 (gain + follower, both ch)",MOSFET N-ch 100V 42A TO-247AC,4,IRFP250NPBF; IXYS IRFP250,"12 used across 3 amps; order 20 to Vgs-sort into matched pairs (Phase A, dVgs<=25mV). 100V ample for 22V rail."
+3,MJE15032G,Q_cm,BJT NPN 250V 8A TO-220 (cap-mult pass),1,BD243CG; KSC2073,"Output device of the Darlington pass pair. TO-220 heatsink ~5C/W. Drops ~1.6V total with Q_d."
+3,BD139,Q_d,BJT NPN 80V 1.5A TO-126 (cap-mult driver),1,BD139-16 (ST); KSC2690AYS,"NEW rev4 (ECR-1): Darlington driver ahead of Q_cm. Composite beta ~5000 keeps the R_cm drop <0.2V. No heatsink needed."
+3,KBPC3506-G,BR1,"Bridge rectifier 600V 35A, chassis",1,GBPC3506W-G,Bolts to chassis floor (its heatsink). Cap-mult cleans the ripple; Schottky optional (ECR-8).
+12,MFR-25FBF52-47K,"R_in,Rb_top",Res 47k 1% 0.25W metal film axial,4,RNF14FTD47K0 (Stackpole),"Was qty 18 in rev3 - R_fb changed to 82k (ECR-2)."
+6,MFR-25FBF52-82K,R_fb,Res 82k 1% 0.25W metal film axial,2,RNF14FTD82K0,"CHANGED rev4 (ECR-2): 47k -> 82k re-centres OUT_NODE at half rail for the IRFP150N's lower Vgs."
+6,MFR-25FBF52-22K,Rb_bot (default),Res 22k 1% 0.25W metal film axial,2,RNF14FTD22K0,"CHANGED rev4 (ECR-2): 10k -> 22k, divider returned to OUT_NODE. Default value; select-on-test per Table 4.3."
+6,MFR-25FBF52-18K,Rb_bot (select: low-Vgs pairs),Res 18k 1% 0.25W metal film axial,2,RNF14FTD18K0,"Bias-select kit (Table 4.3): stuff when measured Vgs(1.2A) < 3.2V. Cheap insurance - order with the mains BOM."
+6,MFR-25FBF52-33K,Rb_bot (select: high-Vgs pairs),Res 33k 1% 0.25W metal film axial,2,RNF14FTD33K0,"Bias-select kit (Table 4.3): stuff when measured Vgs(1.2A) = 3.55-3.90V. (Rare >3.90V pairs need 39k = MFR-25FBF52-39K - order only if Phase A finds one.)"
+6,MFR-25FBF52-220R,R_gs,Res 220R 1% 0.25W metal film axial,2,RNF14FTD220R,Q1 gate stopper.
+6,MFR-25FBF52-100R,R_g2,Res 100R 1% 0.25W metal film axial,2,RNF14FTD100R,Q2 gate stopper.
+3,MFR-25FBF52-2K2,R_be,Res 2.2k 1% 0.25W metal film axial,1,RNF14FTD2K20,"NEW rev4 (ECR-1): Q_cm base-emitter bleed, clean turn-off for the Darlington."
+12,0.47AECT-ND,"R_s1,R_s2","Res 0.47R 3W 5% metal-oxide, non-inductive (DigiKey P/N)",4,Ohmite AG5 0.47R 5W; Yageo SQP500JB-0R47,"DigiKey HOUSE P/N - import in the DigiKey Part Number field, NOT the MPN field. Bias sense: 0.658V = 1.40A."
+6,FMP200JR-52-100R,R_dc,Res 100R 2W metal film axial,2,FMP300JR-52-100R (3W),Output bleeder / DC reference.
+6,FMP200JR-52-10R,R_z,Res 10R 2W metal film axial,2,FMP300JR-52-10R (3W),"NEW rev4 (ECR-2): Zobel series resistor - HF stability with any cable/speaker."
+3,FMP200JR-52-220R,R_cm,Res 220R 2W metal film axial,1,FMP100JR-52-220R (1W),Cap-multiplier base feed (now sees <1mA with the Darlington; 2W is generous).
+3,FMP200JR-52-4K7,R_bleed,Res 4.7k 2W metal film axial,1,FMP300JR-52-4K7 (3W),Reservoir safety bleeder. <2V in ~5 min after power-off.
+6,MKS2C042201K00JC00,C_in,Cap 2.2uF 63V film PET radial (WIMA MKS2),2,Kemet R82 2.2uF; WIMA MKP (PP),Input coupling. The only cap in the forward signal path - spend here if anywhere.
+12,R82EC4100DQ70K,"C_out_byp,Cb_byp",Cap 1uF 100V film PET radial (Kemet R82),4,R82EC4100DQ70J (5%),Output-cap bypass + bias bootstrap bypass.
+12,R82EC3100DQ70K,"C_rail_byp,C_z",Cap 0.1uF 100V film PET radial (Kemet R82),4,R82EC3100DQ70J (5%),"Qty doubled in rev4: Zobel C_z added (ECR-2)."
+12,50USC10000MEFCSN25X50,"C_out,C_res",Cap 10000uF 50V snap-in (Rubycon USC),4,Nichicon LLR1H103MHSC; UVZ1H103MMD,"One merged line: 2x C_out + 2x C_res per amp, same MPN. Snap-in, hand-solderable."
+3,UPW1H222MHD,C_cm,Cap 2200uF 50V radial low-Z (Nichicon UPW),1,Panasonic EEU-FC1H222; Rubycon 50ZLH2200MEFC16X25,"LOCKED rev4 (ECR-6): replaces unverified 35V Panasonic ECA placeholder; 50V matches the rest. Confirm stock at cart."
+6,UPW1H101MPD,Cb_filt,Cap 100uF 50V radial low-Z (Nichicon UPW),2,Panasonic EEU-FC1H101; Rubycon 50PK100MEFC6.3X11,"LOCKED rev4 (ECR-6): 50V part replaces unverified 35V placeholder. Confirm stock at cart."
+6,50PK470MEFC10X20,C_rail,Cap 470uF 50V radial (Rubycon PK),2,Nichicon UPW1H471MPD,Local rail bulk on each channel board.
+6,3296W-1-103LF,RV_bias,Trimpot 10k 25-turn top adj (Bourns 3296),2,3296Y-1-103LF (side adj),"Bias fine-trim, wired as rheostat. Preset to MINIMUM resistance before first power (Phase E)."
+3,0218002.MXP,F1,Fuse 2A 250V slow-blow 5x20mm (Littelfuse),1,0218002.HXP,"120V build. (230V regions: 1A slow = 0218001.MXP, and wire T1 primaries in series.)"
+3,CL-60,RT1,NTC inrush limiter 10R 5A (Amphenol/Thermometrics),1,Ametherm SL22 10005,"NEW rev4 (ECR-1): 225VA toroid + 20mF reservoir needs inrush limiting; also protects F1 from nuisance blows."
+3,1N5408,D_p,Diode 3A 1000V axial,1,1N5404,"NEW rev4 (ECR-1): reverse-clamps Q_cm at power-off while the reservoir discharges."
+12,4880SG,INS,TO-247 insulator: mica + shoulder washer (Aavid),4,Bergquist Sil-Pad K10 + TO-247 bushing,"Q1,Q2 only in rev4 (12 pc). Tabs are at DRAIN potential - always insulated. Verify kit contents."
+3,4880MG,INS2,TO-220 insulator kit: mica + bushing (Aavid),1,Bergquist SP400-0.007 + nylon bushing,"NEW rev4 (ECR-7): Q_cm is TO-220 - the 4880SG mica is TO-247-sized. VERIFY this MPN at cart; any TO-220 mica+bushing kit works."
+6,RCJ-031,J_in,"RCA jack, chassis, insulated (CUI)",2,Amphenol ACJR-RED/BLK,Line input. Insulated from chassis - signal ground goes to the star. Verify footprint.
+6,7019,J_spk,"Binding post DUAL red+black, panel (Keystone)",2,Pomona 6883,One dual post per channel.
+3,719W-UEL3BR51,J_mains,"IEC C14 inlet, fused + switched (Qualtek)",1,723W-BEL3BR51A,Mains entry; takes F1 in its drawer.
+3,1182G18,T1,"Toroid 225VA, dual 115V primary / dual 18V secondary (Hammond)",1,"Antek AS-2218 (direct from antekinc.com, cheaper, not a distributor SKU)",Stocked at DigiKey/Mouser. 120V: primaries AND secondaries in parallel - phasing test in Phase B before connecting.
+6,HeatsinkUSA 10.080in x 10in,HS1,"Heatsink, 10.080in-wide extrusion, 10in length per channel",2,Wakefield 1-ft extrusion (Mouser); Boyd cut-to-length (DigiKey quote),"CHANGED rev4 (ECR-5): 10in/ch (was ~8in) buys margin to <=0.5C/W. Direct from heatsinkusa.com; won't auto-match in the importer."
+1,TWW10J6R8E,TOOL R_j (Vgs jig),Res 6.8R 10W wirewound axial (Ohmite),0,Vishay HL06806E6R800JE00,"BENCH TOOL (one per bench, not per amp) - Fig. 4 matching jig."
+2,HS50 8R J,TOOL R_dummy,Power resistor 8R 50W chassis-mount (Arcol),0,Ohmite TGHGVR050JE / any 8R >=50W,"BENCH TOOL - dummy loads for Phases B/E/F. Bolt to any scrap heatsink."
+1,120-2,TOOL thermal compound,Thermal joint compound 2oz (Wakefield),0,Arctic MX-4; Dow 340,"BENCH consumable - under every mica washer, thin film both sides."

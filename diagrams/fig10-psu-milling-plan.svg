@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1340 900" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    text{font-family:Helvetica,Arial,sans-serif;fill:#1a1a1a}
+    .net{font-size:13px;font-weight:700;fill:#7a4a1f;letter-spacing:0.5px}
+    .ref{font-size:12px;font-weight:700;fill:#0d47a1}
+    .pin{font-size:10.5px;font-weight:700;fill:#5d4037}
+    .note{font-size:13px;fill:#455a64}
+    .ttl{font-size:23px;font-weight:700;fill:#123a5f}
+    .warn{font-size:13px;font-weight:700;fill:#b71c1c}
+    .cu{fill:#eac9a2;stroke:#b98a5a;stroke-width:1.5}
+    .ghost{fill:none;stroke:#1565c0;stroke-width:1.5;stroke-dasharray:5 4}
+    .dim{stroke:#78909c;stroke-width:1.3}
+  </style>
+  <defs>
+    <g id="pad0"><circle r="7" fill="#5d4037"/><circle r="2.6" fill="#fff"/></g>
+    <g id="padL0"><circle r="10" fill="#5d4037"/><circle r="3.4" fill="#fff"/></g>
+    <marker id="ad10" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,4 L8,4 M4,0 L4,8" stroke="#78909c"/></marker>
+  </defs>
+  <rect width="1340" height="900" fill="#fff"/>
+  <text x="60" y="44" class="ttl">Fig. 10 — PSU Board, isolation-milling plan (single-sided FR4)</text>
+  <text x="60" y="67" class="note">Viewed from the COMPONENT side (x-ray) — MIRROR for toolpaths. 5 islands: RAW+ &#183; GND &#183; BASE &#183; DRIVE &#183; RAIL_OUT. Bridge BR1 stays off-board (chassis).</text>
+  <text x="60" y="86" class="warn">Verify pad pitches against your actual parts before cutting. Drill 1.0 mm; 1.6 mm at snap-in and wire pads; 4.5 mm at the star bolt.</text>
+
+  <path class="dim" d="M120,124 H890" marker-start="url(#ad10)" marker-end="url(#ad10)"/>
+  <text x="505" y="118" class="note" text-anchor="middle">110 mm</text>
+  <path class="dim" d="M104,150 V675" marker-start="url(#ad10)" marker-end="url(#ad10)"/>
+  <text x="96" y="415" class="note" text-anchor="end" transform="rotate(-90 96 415)">75 mm</text>
+
+  <!-- board -->
+  <rect x="120" y="150" width="770" height="525" rx="4" fill="#fefcf9" stroke="#37474f" stroke-width="2.5"/>
+
+  <!-- RAW+ : top strip + left block + three fingers (Qd-C, Qcm-C, D_p) -->
+  <path class="cu" d="M130,160 H880 V240 H870 V330 H852 V240 H824 V450 H806 V240 H664 V402 H646 V240 H540 V340 H130 Z"/>
+  <text x="240" y="200" class="net">RAW+ (&#8776;+24 V)</text>
+  <!-- GND: main block + C_cm tongue + bottom strip -->
+  <path class="cu" d="M130,380 H552 V600 H566 V432 H600 V600 H880 V665 H130 Z"/>
+  <text x="180" y="560" class="net">GND / STAR</text>
+  <!-- BASE -->
+  <rect class="cu" x="560" y="300" width="80" height="112" rx="5"/>
+  <text x="590" y="318" class="net" font-size="11.5">BASE</text>
+  <!-- DRIVE: block over Qd emitter + strip to Qcm base -->
+  <path class="cu" d="M668,368 H720 V420 H800 V455 H668 Z"/>
+  <text x="690" y="444" class="net" font-size="11.5">DRIVE</text>
+  <!-- RAIL_OUT: tab (Qcm E, D_p) + arm (R_be) + column (out pads) -->
+  <path class="cu" d="M700,470 H828 V430 H886 V590 H820 V510 H700 Z"/>
+  <text x="712" y="496" class="net" font-size="11.5">RAIL_OUT</text>
+
+  <!-- pads -->
+  <use href="#padL0" x="160" y="200"/><text x="160" y="266" class="ref" text-anchor="middle">RAW +</text>
+  <use href="#padL0" x="160" y="480"/><text x="160" y="460" class="ref" text-anchor="middle">RAW &#8722;</text>
+  <use href="#padL0" x="250" y="322"/><use href="#padL0" x="250" y="392"/>
+  <use href="#padL0" x="430" y="322"/><use href="#padL0" x="430" y="392"/>
+  <use href="#pad0" x="500" y="322"/><use href="#pad0" x="500" y="410"/>
+  <!-- R_cm: RAW+ top strip -> BASE -->
+  <use href="#pad0" x="600" y="205"/><use href="#pad0" x="600" y="325"/>
+  <!-- C_cm: BASE -> GND tongue -->
+  <use href="#pad0" x="583" y="394"/><use href="#pad0" x="583" y="444"/>
+  <!-- BD139 pads: B(BASE) C(finger1) E(DRIVE) -->
+  <use href="#pad0" x="630" y="390"/><use href="#pad0" x="655" y="390"/><use href="#pad0" x="680" y="390"/>
+  <text x="630" y="374" class="pin" text-anchor="middle">B</text>
+  <text x="655" y="374" class="pin" text-anchor="middle">C</text>
+  <text x="680" y="374" class="pin" text-anchor="middle">E</text>
+  <!-- MJE pads: B(DRIVE) C(finger2) E(RAIL_OUT tab) -->
+  <use href="#pad0" x="792" y="437"/><use href="#pad0" x="815" y="437"/><use href="#pad0" x="838" y="437"/>
+  <text x="792" y="421" class="pin" text-anchor="middle">B</text>
+  <text x="815" y="421" class="pin" text-anchor="middle">C</text>
+  <text x="838" y="421" class="pin" text-anchor="middle">E</text>
+  <!-- D_p: finger3 -> RAIL_OUT tab -->
+  <use href="#pad0" x="861" y="308"/><use href="#pad0" x="861" y="452"/>
+  <!-- R_be: DRIVE strip -> RAIL_OUT arm -->
+  <use href="#pad0" x="750" y="437"/><use href="#pad0" x="750" y="490"/>
+  <use href="#padL0" x="856" y="540"/><text x="836" y="545" class="ref" text-anchor="end">RAIL-L</text>
+  <use href="#padL0" x="856" y="572"/><text x="836" y="577" class="ref" text-anchor="end">RAIL-R</text>
+  <use href="#padL0" x="700" y="632"/><text x="700" y="614" class="ref" text-anchor="middle">0V-L</text>
+  <use href="#padL0" x="760" y="632"/><text x="760" y="614" class="ref" text-anchor="middle">0V-R</text>
+  <circle cx="400" cy="632" r="15" fill="#5d4037"/><circle cx="400" cy="632" r="6.5" fill="#fff"/>
+  <text x="400" y="606" class="ref" text-anchor="middle">STAR — M4 bolt + ring lugs</text>
+
+  <!-- ghosts -->
+  <circle class="ghost" cx="250" cy="357" r="88"/><text x="250" y="357" class="ref" text-anchor="middle">C_res A</text>
+  <circle class="ghost" cx="430" cy="357" r="88"/><text x="430" y="357" class="ref" text-anchor="middle">C_res B</text>
+  <rect class="ghost" x="486" y="336" width="28" height="62" rx="10"/><text x="500" y="440" class="ref" text-anchor="middle">R_bleed</text>
+  <rect class="ghost" x="586" y="230" width="28" height="70" rx="10"/><text x="626" y="262" class="ref">R_cm</text>
+  <circle class="ghost" cx="583" cy="419" r="34"/><text x="536" y="470" class="ref" text-anchor="end">C_cm (+) up</text>
+  <rect class="ghost" x="612" y="336" width="86" height="30" rx="4"/><text x="700" y="346" class="ref">Q_d BD139</text>
+  <rect class="ghost" x="778" y="396" width="74" height="22" rx="4"/><text x="770" y="402" class="ref" text-anchor="end">Q_cm</text>
+  <rect class="ghost" x="847" y="336" width="28" height="88" rx="10"/><text x="874" y="356" class="ref">D_p</text>
+  <rect class="ghost" x="736" y="450" width="28" height="30" rx="10"/><text x="728" y="472" class="ref" text-anchor="end">R_be</text>
+
+  <!-- notes -->
+  <rect x="60" y="700" width="1220" height="118" rx="9" fill="#f5f7fa" stroke="#b0bec5"/>
+  <text x="76" y="726" class="note"><tspan font-weight="700">Milling notes:</tspan> &#9312; only 5 islands — buzz out all adjacent pairs after milling &#9313; RAW+ and GND carry 2.8 A: wide pours stay wide. Of the three narrow RAW+ fingers, two carry</text>
+  <text x="76" y="746" class="note">only base/leakage current; the middle one (Q_cm collector) carries the full 2.8 A — reinforce it with tinned bus wire laid on the copper</text>
+  <text x="76" y="766" class="note">&#9314; Q_cm&#8217;s heatsink bracket bolts right at the board edge; insulate the tab (TO-220 kit) &#9315; snap-in caps: 1.6 mm drills, push fully home &#9316; D_p band faces UP (to RAW+ finger)</text>
+  <text x="76" y="786" class="note">&#9317; star bolt lug stack, board up: C_res returns &#8594; RAW&#8722; &#8594; channel 0 V &#8594; speaker returns &#8594; chassis bond LAST &#9318; B-C-E letters mark the transistor pads — match them to the device, not to habit</text>
+  <text x="76" y="808" class="warn">Cross-check every island against Fig. 3 with a continuity beeper BEFORE fitting the transistors.</text>
+
+  <!-- title block -->
+  <rect x="60" y="836" width="1220" height="34" fill="#fff" stroke="#37474f" stroke-width="1.6"/>
+  <path d="M420,836 V870 M900,836 V870" stroke="#37474f" stroke-width="1.2"/>
+  <text x="76" y="858" font-size="14" font-weight="700" fill="#123a5f">SONUS MINIMAL</text>
+  <text x="436" y="858" font-size="13" fill="#37474f">Fig. 10 — PSU board milling plan (single-sided) &#183; rev A</text>
+  <text x="916" y="858" font-size="13" fill="#37474f">2026-07-03 &#183; LABBOOK App. E</text>
+</svg>

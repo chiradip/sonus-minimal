@@ -1,0 +1,66 @@
+* SONUS MINIMAL - channel (rev A resolved values) - LTspice / ngspice deck
+* ---------------------------------------------------------------------------
+* Matches Fig. 2 / LABBOOK section 4.  One channel, ideal +22.3 V rail.
+*
+* EXPECTED OPERATING POINT (with the approximate model below):
+*   I(Rs1)  = 1.3-1.5 A          (bias current; trimmed via Rrv)
+*   V(out)  = 10.5-11.5 V        (roughly half rail)
+*   V(g1)   = about 4.0 V
+*   V(vb2)  = about 15 V
+* Your real MOSFETs WILL land elsewhere: Vto spread is 2-4 V. That is what
+* RV_bias is for.  To mimic trimming, sweep Rrv between 1k and 9k.
+*
+* RUNS:
+*   .op                          operating point (check table above)
+*   .tran                        1 kHz sine, ~1 W into 8 ohm; THD via .four
+*   .ac                          small-signal gain/bandwidth (expect ~20 dB,
+*                                -3 dB at ~2 Hz and >>100 kHz)
+* ---------------------------------------------------------------------------
+
+Vrail rail 0 DC 22.3
+Vin   in   0 DC 0 AC 1 SIN(0 0.45 1k)
+
+* --- input / feedback ---
+Cin  in  g1   2.2u
+Rin  g1  0    47k
+Rfb  out g1   82k
+Rgs  g1  g1g  220
+
+* --- lower device: common-source gain ---
+M1   out g1g s1 s1 IRFP150N
+Rs1  s1  0    0.47
+
+* --- bias divider + bootstrap (Q2 = current source at audio) ---
+Rbtop  rail vb2  47k
+Rrv    vb2  vbx  3.5k     ; trimmer wired as rheostat, 0-10k. 3.5k ~= 1.4 A here
+Rbbot  vbx  out  22k      ; select-on-test 18k/22k/33k (Table 4.3)
+Cbfilt vb2  out  100u
+Cbbyp  vb2  out  1u
+
+* --- upper device: bootstrapped follower / current source ---
+Rg2  vb2  g2   100
+M2   rail g2  s2 s2 IRFP150N
+Rs2  s2   out  0.47
+
+* --- local rail bypass (cosmetic with an ideal Vrail) ---
+Crail    rail 0 470u
+Crailbyp rail 0 0.1u
+
+* --- Zobel + output coupling + load ---
+Rz   out zx   10
+Cz   zx  0    0.1u
+Cout out spk  10000u
+Rdc  spk 0    100
+Rload spk 0   8
+
+* --- approximate IRFP150N (VDMOS, level-1-ish). Vto typ 3.0; real parts 2-4 V.
+.model IRFP150N VDMOS(Vto=3.0 Kp=25 Lambda=0.005 Rs=10m Rd=25m Rg=2
++ Cgdmax=1.5n Cgdmin=0.1n Cgs=2n Cjo=1.2n Is=1e-12 mtriode=0.3)
+
+* --- analyses ---
+.op
+.tran 20u 500m 300m         ; skip the C_out charge transient, keep 200 ms
+.four 1k 9 V(spk)           ; expect H2-dominant, monotonically decaying
+.ac dec 25 0.1 10meg
+
+.end

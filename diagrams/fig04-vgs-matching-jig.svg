@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 660" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    text{font-family:Helvetica,Arial,sans-serif;fill:#1a1a1a}
+    .w{stroke:#212121;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .ref{font-weight:700;font-size:15.5px;fill:#0d47a1}
+    .val{font-size:14px;fill:#37474f}
+    .dc{font-size:14px;font-style:italic;font-weight:600;fill:#ad1457}
+    .note{font-size:13px;fill:#455a64}
+    .ttl{font-size:23px;font-weight:700;fill:#123a5f}
+    .warn{font-size:13.5px;font-weight:700;fill:#b71c1c}
+  </style>
+  <defs>
+    <g id="resH"><path class="w" d="M0,0 L12,0 L16,7 L24,-7 L32,7 L40,-7 L48,7 L52,0 L64,0"/></g>
+    <g id="nmos"><path class="w" d="M-26,0 H-10 M-10,-13 V13 M-3,-15 V15 M-3,-11 H12 M12,-11 V-30 M-3,11 H12 M12,11 V30"/><polygon points="-3,11 7,7 7,15" fill="#212121"/></g>
+    <g id="dot"><circle r="4" fill="#212121"/></g>
+  </defs>
+  <rect width="1080" height="660" fill="#fff"/>
+  <text x="60" y="46" class="ttl">Fig. 4 — V_GS Matching Jig (Phase A)</text>
+  <text x="60" y="70" class="note">Diode-connected MOSFET at &#8776;1.2 A — right at the amp&#8217;s operating point. One resistor, one supply, one meter.</text>
+
+  <!-- supply -->
+  <rect x="80" y="130" width="180" height="130" rx="10" fill="#f5f7fa" stroke="#212121" stroke-width="2"/>
+  <text x="170" y="168" class="ref" text-anchor="middle">BENCH SUPPLY</text>
+  <text x="170" y="188" class="val" text-anchor="middle">12 V DC, &#8805;1.5 A</text>
+  <text x="170" y="206" class="note" text-anchor="middle">(or a 12 V/2 A wall</text>
+  <text x="170" y="222" class="note" text-anchor="middle">adapter — fine)</text>
+  <text x="272" y="166" class="ref">+</text>
+  <text x="272" y="252" class="ref">&#8722;</text>
+
+  <!-- + path through R_j -->
+  <path class="w" d="M260,172 H330"/>
+  <use href="#resH" x="330" y="172"/>
+  <text x="362" y="146" class="val" text-anchor="middle"><tspan class="ref">R_j</tspan> &#160;6.8 &#937; 10 W wirewound</text>
+  <path class="w" d="M394,172 H510 V190"/>
+  <use href="#dot" x="440" y="172"/>
+
+  <!-- gate-drain jumper -->
+  <path class="w" d="M472,220 H440 V172"/>
+  <text x="300" y="272" class="note">jumper: gate tied to drain</text>
+  <text x="300" y="290" class="note">(&#8220;diode-connected&#8221;)</text>
+
+  <!-- DUT -->
+  <use href="#nmos" x="498" y="220"/>
+  <text x="540" y="200" class="ref">DUT — IRFP150N</text>
+  <text x="540" y="218" class="val">clip or bolt to a scrap</text>
+  <text x="540" y="234" class="val">heatsink — it makes &#8776;4.5 W</text>
+
+  <!-- source return -->
+  <path class="w" d="M510,250 V320 H260 V246"/>
+  <use href="#dot" x="510" y="292"/>
+
+  <!-- DMM -->
+  <circle cx="740" cy="300" r="38" class="w"/>
+  <text x="740" y="309" font-size="24" font-weight="700" text-anchor="middle" fill="#c62828">V</text>
+  <text x="740" y="358" class="val" text-anchor="middle">DMM — 20 V range, read to 1 mV</text>
+  <path d="M712,274 L452,220" stroke="#c62828" stroke-width="1.8" stroke-dasharray="7 5" fill="none"/>
+  <circle cx="452" cy="220" r="4.5" fill="#c62828"/>
+  <text x="676" y="252" class="warn">V+ on gate</text>
+  <path d="M716,326 L510,292" stroke="#c62828" stroke-width="1.8" stroke-dasharray="7 5" fill="none"/>
+  <text x="640" y="344" class="warn">V&#8722; on source</text>
+  <text x="806" y="292" class="dc">reading = V_GS at &#8776;1.2 A</text>
+  <text x="806" y="312" class="dc">expect 3.1 – 4.1 V</text>
+
+  <!-- math box -->
+  <rect x="80" y="392" width="380" height="102" rx="9" fill="#eef4fb" stroke="#90a4ae"/>
+  <text x="98" y="420" class="ref" font-size="14">Why 6.8 &#937;:</text>
+  <text x="98" y="444" class="val">I = (12 V &#8722; V_GS) / 6.8 &#937; &#8776; (12 &#8722; 3.5)/6.8 &#8776; 1.25 A</text>
+  <text x="98" y="464" class="val">&#8776; the amp&#8217;s 1.4 A bias point, so the ranking you</text>
+  <text x="98" y="482" class="val">measure here is the ranking that matters in-circuit.</text>
+
+  <!-- procedure box -->
+  <rect x="490" y="392" width="510" height="196" rx="9" fill="#f5f7fa" stroke="#b0bec5"/>
+  <text x="508" y="418" class="ref" font-size="14">Per device (&#8776;2 min each):</text>
+  <text x="508" y="442" class="note">1. Power OFF. Clip DUT to the heatsink, hook up G-D jumper + leads.</text>
+  <text x="508" y="462" class="note">2. Power ON. The resistor and DUT get hot — that is expected.</text>
+  <text x="508" y="482" class="note">3. Wait 60 s for thermal settle, then read V_GS to the millivolt.</text>
+  <text x="508" y="502" class="note">4. Log in Table A.2 with the device&#8217;s marker number. Power OFF.</text>
+  <text x="508" y="522" class="note">5. Sort all devices by V_GS. Pair ADJACENT values.</text>
+  <text x="508" y="546" class="warn">Accept a pair when &#916;V_GS &#8804; 25 mV. Q1+Q2 of one channel = one pair.</text>
+  <text x="508" y="566" class="note">Same room temp for every reading; handle by the plastic, not the tab.</text>
+
+  <!-- title block -->
+  <rect x="60" y="608" width="960" height="40" fill="#fff" stroke="#37474f" stroke-width="1.6"/>
+  <path d="M400,608 V648 M760,608 V648" stroke="#37474f" stroke-width="1.2"/>
+  <text x="76" y="633" font-size="14" font-weight="700" fill="#123a5f">SONUS MINIMAL</text>
+  <text x="416" y="633" font-size="13" fill="#37474f">Fig. 4 — V_GS matching jig (rev A)</text>
+  <text x="776" y="633" font-size="13" fill="#37474f">2026-07-03 &#183; LABBOOK Phase A</text>
+</svg>

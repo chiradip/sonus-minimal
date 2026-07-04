@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 640" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    text{font-family:Helvetica,Arial,sans-serif;fill:#1a1a1a}
+    .w{stroke:#212121;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .ref{font-weight:700;font-size:15.5px;fill:#0d47a1}
+    .val{font-size:14px;fill:#37474f}
+    .note{font-size:13px;fill:#455a64}
+    .ttl{font-size:23px;font-weight:700;fill:#123a5f}
+    .warn{font-size:13.5px;font-weight:700;fill:#b71c1c}
+  </style>
+  <rect width="1080" height="640" fill="#fff"/>
+  <text x="60" y="46" class="ttl">Fig. 8 — Dim-Bulb Tester (every first power-up goes through this)</text>
+  <text x="60" y="70" class="note">A filament bulb in series with the LINE limits any fault to a warm glow instead of a bang. Build one or buy one — do not skip it.</text>
+
+  <!-- plug -->
+  <rect x="80" y="150" width="110" height="90" rx="8" fill="#fff5f5" stroke="#b71c1c" stroke-width="2"/>
+  <text x="135" y="186" class="ref" text-anchor="middle" fill="#b71c1c">WALL</text>
+  <text x="135" y="204" class="val" text-anchor="middle">120 V outlet</text>
+  <text x="196" y="176" class="note">L</text>
+  <text x="196" y="230" class="note">N</text>
+
+  <!-- L path with bulb -->
+  <path class="w" d="M190,170 H330" stroke="#b71c1c" stroke-width="2.4"/>
+  <circle cx="368" cy="170" r="34" class="w" stroke="#b71c1c"/>
+  <path class="w" d="M344,146 L392,194 M392,146 L344,194" stroke="#b71c1c"/>
+  <path class="w" d="M402,170 H560" stroke="#b71c1c" stroke-width="2.4"/>
+  <text x="368" y="118" class="ref" text-anchor="middle" fill="#b71c1c">LAMP — 100 W INCANDESCENT</text>
+  <text x="368" y="262" class="warn" text-anchor="middle">filament bulb only —</text>
+  <text x="368" y="280" class="warn" text-anchor="middle">LED / CFL will NOT work</text>
+
+  <!-- N straight -->
+  <path class="w" d="M190,224 H466 V280 H560" />
+  <!-- E -->
+  <path class="w" d="M135,240 V308 H560" stroke="#2e7d32"/>
+  <text x="200" y="334" class="note" fill="#2e7d32">N and E (earth) run straight through — never switched, never fused</text>
+
+  <!-- outlet -->
+  <rect x="560" y="140" width="130" height="180" rx="8" fill="#f5f7fa" stroke="#212121" stroke-width="2"/>
+  <text x="625" y="196" class="ref" text-anchor="middle">OUTLET</text>
+  <text x="625" y="216" class="val" text-anchor="middle">on the tester</text>
+  <text x="625" y="236" class="note" text-anchor="middle">(metal box +</text>
+  <text x="625" y="252" class="note" text-anchor="middle">cover plate)</text>
+
+  <!-- amp -->
+  <path class="w" d="M690,230 H744" stroke-width="2.4"/>
+  <rect x="748" y="176" width="240" height="110" rx="10" fill="#f0f7f0" stroke="#2e7d32" stroke-width="2"/>
+  <text x="868" y="216" class="ref" text-anchor="middle" fill="#1b5e20">AMP UNDER TEST</text>
+  <text x="868" y="238" class="val" text-anchor="middle">plugged in normally,</text>
+  <text x="868" y="256" class="val" text-anchor="middle">its own fuse still fitted</text>
+
+  <!-- behavior table -->
+  <rect x="60" y="360" width="960" height="196" rx="10" fill="#f5f7fa" stroke="#b0bec5"/>
+  <text x="78" y="390" class="ref" font-size="15">What the bulb tells you (this amp draws &#8776;95 W when healthy):</text>
+  <circle cx="106" cy="424" r="13" fill="#ffe082" stroke="#f9a825" stroke-width="2"/>
+  <text x="134" y="429" class="val"><tspan font-weight="700">Bright flash, then settles to a steady half-glow:</tspan> NORMAL — inrush charged the reservoir, amp is drawing bias. Proceed.</text>
+  <circle cx="106" cy="462" r="13" fill="#ff8a65" stroke="#bf360c" stroke-width="2"/>
+  <text x="134" y="467" class="val"><tspan font-weight="700">Full brightness, steady:</tspan> FAULT — a short (miswired bridge, reversed cap, tab touching heatsink). Power off, discharge, find it.</text>
+  <circle cx="106" cy="500" r="13" fill="#eceff1" stroke="#90a4ae" stroke-width="2"/>
+  <text x="134" y="505" class="val"><tspan font-weight="700">Dark, and no rail voltage:</tspan> open circuit — check F1, IEC wiring, transformer connections.</text>
+  <text x="78" y="540" class="note">Note: with the bulb in series the rail will sit LOW (the bulb steals volts) — that is fine for smoke-testing. Do final bias trim WITHOUT the bulb.</text>
+
+  <!-- title block -->
+  <rect x="60" y="576" width="960" height="40" fill="#fff" stroke="#37474f" stroke-width="1.6"/>
+  <path d="M400,576 V616 M760,576 V616" stroke="#37474f" stroke-width="1.2"/>
+  <text x="76" y="601" font-size="14" font-weight="700" fill="#123a5f">SONUS MINIMAL</text>
+  <text x="416" y="601" font-size="13" fill="#37474f">Fig. 8 — Dim-bulb tester (rev A)</text>
+  <text x="776" y="601" font-size="13" fill="#37474f">2026-07-03 &#183; LABBOOK Phase B/E</text>
+</svg>
