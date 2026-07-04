@@ -7,6 +7,7 @@ is placed or received; reference it from the unit logs in LABBOOK Appendix A.
 | Date | Part / Ref | Qty | Source (actual) | Why not DigiKey | Status | Notes |
 |---|---|---|---|---|---|---|
 | 2026-07-04 | **IRFP150NPBF** (Q1, Q2) | 20 | **Amazon** | Out of stock on DigiKey at order time | ordered | ⚠ see authenticity note below |
+| 2026-07-04 | **TOOL R_dummy** (BOM: Arcol HS50 8R J) | **8** (4 × 2-pc packs) | **Amazon** — "Chanzon 2pcs Wirewound Aluminum Shell Resistor 8 Ω 50W ±5% 8R" | Substitute brand, convenience | ordered | Acceptable; 8 pcs enables a 2×2 array per channel — see dummy-load note below |
 
 ## ⚠ Note on the Amazon-sourced IRFP150N
 
@@ -27,6 +28,23 @@ includes the screening step:
    Table 4.3 bias selection absorbs their slightly different V_GS.
 4. Record the per-device V_GS values in LABBOOK Table A.2 as usual — that table is the
    permanent record of this lot's quality.
+
+## Note on the Chanzon 8 Ω 50 W dummy loads
+
+Fine substitution — this is a bench tool, not an in-circuit part, and any aluminum-shell
+wirewound of the same rating does the job (it stands in for the Arcol HS50 8R J).
+**Eight pieces were ordered (4 × 2-pc packs), which is better than the BOM's two:**
+
+1. **Build two 2×2 arrays** (two in series, two such strings in parallel): still 8 Ω, but
+   rated 200 W per array with the heat spread over four housings. One array per channel —
+   this comfortably covers every test in the book, including the Phase B PSU load test
+   (~62 W: a single 50 W resistor would have needed derating gymnastics).
+2. **The 50 W/pc rating still assumes a heatsink.** Bolt each array to a scrap heatsink or
+   aluminum plate with thermal compound; free-air these housings are good for ~20 W each.
+3. **Verify on arrival:** DMM each piece — expect 7.6–8.4 Ω (±5 %).
+   Record: R1 ____ R2 ____ R3 ____ R4 ____ R5 ____ R6 ____ R7 ____ R8 ____ Ω.
+   Wirewound = inductive; irrelevant for DC bias and 1 kHz THD work, just don't interpret
+   >20 kHz square-wave results into it.
 
 Rule of thumb going forward: **actives and anything safety-critical (MOSFETs, BJTs, bridge,
 fuse, IEC inlet, mains parts) prefer authorized distributors**; passives from Amazon are a
