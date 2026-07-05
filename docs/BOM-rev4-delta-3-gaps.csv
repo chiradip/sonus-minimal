@@ -1,0 +1,4 @@
+Quantity,Manufacturer Part Number,Customer Reference,Description,Qty per amp (stereo),Alternate MPN,Notes
+15,SP400-0.007-00-104,INS (Q1/Q2),"Sil-Pad 400 insulator pad, TO-247 cutout (Bergquist/Henkel)",4,Any TO-247/TO-3P mica or silicone pad; t-Global TO-247 pad,"GAP-1 from invoice 128236717 audit: no TO-247 insulators on hand (4880SG/4880MG are TO-220). VERIFY this MPN's package at cart - filter DigiKey Thermal > Pads by TO-247/TO-3P. 12 used + 3 spares."
+15,TO247-BUSHING,INS-BUSH (Q1/Q2),"Insulating shoulder washer/bushing for TO-247 mounting screw, nylon",4,Essentra/Boyd TO-247 bushing; shoulder washer kits,"Order ONLY if the chosen pad does not include bushings (sil-pads usually don't). Placeholder P/N - select in-stock at cart. The screw must not touch the tab hole wall."
+2,7019,J_spk (amp #3),"Binding post DUAL red+black, panel (Keystone)",2,Pomona 6883,"GAP-2: base order had 4 of 6. These two complete the third amplifier."

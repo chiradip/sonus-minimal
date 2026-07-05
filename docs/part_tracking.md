@@ -64,8 +64,11 @@ smaller risk but still worth the same arrival check.
    at cart, filter DigiKey by package "TO-247 / TO-3P". Upside: Q_cm's TO-220 insulators
    are now 15-deep.
 2. **Keystone 7019 binding posts: 4 of 6.** Order 2 more (one dual post per channel).
-3. **Hammond 1182G18 toroids: 2 of 3 on this invoice.** Confirm the third is in the
-   separate toroid/heatsink order; if not, order 1 more.
+3. ~~Hammond 1182G18 toroids: 2 of 3 on this invoice.~~ **RESOLVED 2026-07-04:** the
+   third toroid was ordered separately (see snapshot table).
+
+Order file for gaps 1–2: **`BOM-rev4-delta-3-gaps.csv`** (TO-247 pads + bushings, 2 binding
+posts). Verify the TO-247 package filter at cart — do not trust 4880-series numbering.
 
 ## Note on the two FET types now in stock
 
@@ -84,8 +87,9 @@ six pairs with zero sorting headroom (pair adjacent values and accept up to 40 m
 |---|---|---|---|---|
 | Main base order (rev-3, inv. 128236717) | DigiKey | 2026-06-26 | 2026-06-xx ✓ | |
 | Delta-1 + delta-2 (14 lines) | DigiKey | 2026-07-04 | | |
+| Delta-3 gaps (TO-247 kits, 2× 7019) | DigiKey | | | |
 | IRFP150N ×20 | Amazon | 2026-07-04 | | |
 | 18 k ×100 (select kit) | Amazon | 2026-07-04 | | |
 | Dummy loads 8 Ω ×8 | Amazon | 2026-07-04 | | |
-| T1 toroids ×3 | DigiKey/Mouser (Hammond) or Antek direct | 2026-07-04 | | |
+| T1 toroid ×1 (third; 2 came in base order) | separate order | 2026-07-04 | | |
 | HS1 heatsinks ×6 | HeatsinkUSA (direct) | 2026-07-04 | | |
