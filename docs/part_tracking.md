@@ -61,5 +61,5 @@ smaller risk but still worth the same arrival check.
 | IRFP150N ×20 | Amazon | 2026-07-04 | | |
 | 18 k ×100 (select kit) | Amazon | 2026-07-04 | | |
 | Dummy loads 8 Ω ×8 | Amazon | 2026-07-04 | | |
-| T1 toroids ×3 | DigiKey/Mouser (Hammond) or Antek direct | | | |
-| HS1 heatsinks ×6 | HeatsinkUSA (direct) | | | |
+| T1 toroids ×3 | DigiKey/Mouser (Hammond) or Antek direct | 2026-07-04 | | |
+| HS1 heatsinks ×6 | HeatsinkUSA (direct) | 2026-07-04 | | |
