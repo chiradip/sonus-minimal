@@ -8,6 +8,7 @@ is placed or received; reference it from the unit logs in LABBOOK Appendix A.
 |---|---|---|---|---|---|---|
 | 2026-07-04 | **IRFP150NPBF** (Q1, Q2) | 20 | **Amazon** | Out of stock on DigiKey at order time | ordered | ⚠ see authenticity note below |
 | 2026-07-04 | **TOOL R_dummy** (BOM: Arcol HS50 8R J) | **8** (4 × 2-pc packs) | **Amazon** — "Chanzon 2pcs Wirewound Aluminum Shell Resistor 8 Ω 50W ±5% 8R" | Substitute brand, convenience | ordered | Acceptable; 8 pcs enables a 2×2 array per channel — see dummy-load note below |
+| 2026-07-04 | **DigiKey delta order** (delta-1 + delta-2, 14 lines) | see note | **DigiKey** cart 2026-07-04T213235 | — | cart exported / ordered | BD13916STU×10, 2K2×100, 1N5408×10 (Diotec), CL-60×10, 10R×10, C_z 0.1µF×10, 33K×10, 4880MG×5, TWW10J6R8E×3, 120-2×2, **82K×100, 22K×100, UPW1H222MHD×10, UPW1H101MPD×20**. ≈$115. All in stock, no backorder. Closes delta-2; 4880MG + both UPW MPNs now verified real/stocked (ECR-6/7 flags resolved). |
 | 2026-07-04 | **Rb_bot select 18 k** (BOM: MFR-25FBF52-18K) | 100 (6 max used) | **Amazon** — "Chanzon 100pcs 1/4W 18K Ω Metal Film Fixed Resistor ±1% MF Through Hole" | Substitute brand, bulk pack | ordered | Spec-equivalent (18 k ¼ W 1 % MF). DMM-verify a sample on arrival (17.82–18.18 k). Conditional stock: stuffed only for FET pairs with V_GS < 3.15 V (Table 4.3). Bag + label the ~94 spares — do NOT let loose resistors near the build. |
 
 ## ⚠ Note on the Amazon-sourced IRFP150N
@@ -56,6 +57,9 @@ smaller risk but still worth the same arrival check.
 | Order | Source | Placed | Received | Checked in (Phase A-1) |
 |---|---|---|---|---|
 | Main BOM rev 4 | DigiKey | | | |
+| Delta-1 + delta-2 (14 lines) | DigiKey | 2026-07-04 | | |
 | IRFP150N ×20 | Amazon | 2026-07-04 | | |
+| 18 k ×100 (select kit) | Amazon | 2026-07-04 | | |
+| Dummy loads 8 Ω ×8 | Amazon | 2026-07-04 | | |
 | T1 toroids ×3 | DigiKey/Mouser (Hammond) or Antek direct | | | |
 | HS1 heatsinks ×6 | HeatsinkUSA (direct) | | | |
