@@ -64,10 +64,12 @@ smaller risk but still worth the same arrival check.
 1. **TO-247 insulators: NONE on hand — BUILD BLOCKER.** The invoice description proves
    4880SG is a **TO-220** Thermasil pad (rev-3 mislabeled it TO-247; its "verify kit
    contents" flag is hereby cashed in). 4880MG (delta order) is also TO-220. Q1/Q2 are
-   TO-247: **need ~15 TO-247/TO-3P insulator kits** (pad + shoulder washer), e.g.
-   Bergquist Sil-Pad 400 in the TO-247 cutout + nylon TO-247 bushing — VERIFY exact MPN
-   at cart, filter DigiKey by package "TO-247 / TO-3P". Upside: Q_cm's TO-220 insulators
-   are now 15-deep.
+   TO-247: **need 12 TO-247/TO-3P insulator pads.** RESOLVED MPN (verified on DigiKey
+   2026-07-04): **Bergquist SP400-0.007-00-104** — listed TO-218/220/247, 25.4x19.05 mm,
+   in stock (7,002), \$0.25. Alternates: Fischer WK 247, Wakefield WTI7R1F0-1.00X0.75.
+   Bushings only if the FET's mounting hole shows metal (IRFP150N holes are plastic-lined).
+   Both 4880 numbers confirmed TO-220 on their product pages. Upside: Q_cm's TO-220
+   insulators are now 15-deep.
 2. ~~Keystone 7019 binding posts: 4 of 6.~~ **RESOLVED by scope change (2 units):**
    4 posts = exactly 2 amps. No reorder.
 3. ~~Hammond 1182G18 toroids: 2 of 3 on this invoice.~~ **RESOLVED 2026-07-04:** the
