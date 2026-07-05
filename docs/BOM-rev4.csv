@@ -27,7 +27,7 @@ Quantity,Manufacturer Part Number,Customer Reference,Description,Qty per amp (st
 3,0218002.MXP,F1,Fuse 2A 250V slow-blow 5x20mm (Littelfuse),1,0218002.HXP,"120V build. (230V regions: 1A slow = 0218001.MXP, and wire T1 primaries in series.)"
 3,CL-60,RT1,NTC inrush limiter 10R 5A (Amphenol/Thermometrics),1,Ametherm SL22 10005,"NEW rev4 (ECR-1): 225VA toroid + 20mF reservoir needs inrush limiting; also protects F1 from nuisance blows."
 3,1N5408,D_p,Diode 3A 1000V axial,1,1N5404,"NEW rev4 (ECR-1): reverse-clamps Q_cm at power-off while the reservoir discharges."
-12,4880SG,INS,TO-247 insulator: mica + shoulder washer (Aavid),4,Bergquist Sil-Pad K10 + TO-247 bushing,"Q1,Q2 only in rev4 (12 pc). Tabs are at DRAIN potential - always insulated. Verify kit contents."
+15,TO-247-INSULATOR-KIT,INS,"TO-247/TO-3P insulator: sil-pad or mica + shoulder washer - SELECT IN-STOCK MPN AT CART",4,Bergquist Sil-Pad 400 TO-247 cutout + nylon TO-247 bushing,"Q1,Q2 (12 pc + spares). CORRECTED 2026-07-04: 4880SG is actually a TO-220 pad (invoice 128236717 desc) - it does NOT fit TO-247. Filter DigiKey by package TO-247/TO-3P. Tabs are at DRAIN potential - always insulated."
 3,4880MG,INS2,TO-220 insulator kit: mica + bushing (Aavid),1,Bergquist SP400-0.007 + nylon bushing,"NEW rev4 (ECR-7): Q_cm is TO-220 - the 4880SG mica is TO-247-sized. VERIFY this MPN at cart; any TO-220 mica+bushing kit works."
 6,RCJ-031,J_in,"RCA jack, chassis, insulated (CUI)",2,Amphenol ACJR-RED/BLK,Line input. Insulated from chassis - signal ground goes to the star. Verify footprint.
 6,7019,J_spk,"Binding post DUAL red+black, panel (Keystone)",2,Pomona 6883,One dual post per channel.

@@ -6,6 +6,7 @@ is placed or received; reference it from the unit logs in LABBOOK Appendix A.
 
 | Date | Part / Ref | Qty | Source (actual) | Why not DigiKey | Status | Notes |
 |---|---|---|---|---|---|---|
+| 2026-06-26 | **MAIN BASE ORDER** (rev-3 BOM, 26 lines) | — | **DigiKey** invoice 128236717, $876.94, shipped complete | — | received | Substitutions: **IRFP150PBF (Vishay) ×12 — the original IRFP150, NOT the 150N** (see FET note); PNP300JR-73-0R47 for R_s (fine); TDK B32529D0225J189 for C_in (fine). Superseded rev-3 parts arrived (10k×50, ECA-1VM222×10, ECA-1VM101×50) → quarantine bag. **Gaps found in audit — see GAPS section.** |
 | 2026-07-04 | **IRFP150NPBF** (Q1, Q2) | 20 | **Amazon** | Out of stock on DigiKey at order time | ordered | ⚠ see authenticity note below |
 | 2026-07-04 | **TOOL R_dummy** (BOM: Arcol HS50 8R J) | **8** (4 × 2-pc packs) | **Amazon** — "Chanzon 2pcs Wirewound Aluminum Shell Resistor 8 Ω 50W ±5% 8R" | Substitute brand, convenience | ordered | Acceptable; 8 pcs enables a 2×2 array per channel — see dummy-load note below |
 | 2026-07-04 | **DigiKey delta order** (delta-1 + delta-2, 14 lines) | see note | **DigiKey** cart 2026-07-04T213235 | — | cart exported / ordered | BD13916STU×10, 2K2×100, 1N5408×10 (Diotec), CL-60×10, 10R×10, C_z 0.1µF×10, 33K×10, 4880MG×5, TWW10J6R8E×3, 120-2×2, **82K×100, 22K×100, UPW1H222MHD×10, UPW1H101MPD×20**. ≈$115. All in stock, no backorder. Closes delta-2; 4880MG + both UPW MPNs now verified real/stocked (ECR-6/7 flags resolved). |
@@ -52,11 +53,36 @@ Rule of thumb going forward: **actives and anything safety-critical (MOSFETs, BJ
 fuse, IEC inlet, mains parts) prefer authorized distributors**; passives from Amazon are a
 smaller risk but still worth the same arrival check.
 
+
+## 🚩 GAPS found auditing invoice 128236717 (2026-07-04) — order before Phase D
+
+1. **TO-247 insulators: NONE on hand — BUILD BLOCKER.** The invoice description proves
+   4880SG is a **TO-220** Thermasil pad (rev-3 mislabeled it TO-247; its "verify kit
+   contents" flag is hereby cashed in). 4880MG (delta order) is also TO-220. Q1/Q2 are
+   TO-247: **need ~15 TO-247/TO-3P insulator kits** (pad + shoulder washer), e.g.
+   Bergquist Sil-Pad 400 in the TO-247 cutout + nylon TO-247 bushing — VERIFY exact MPN
+   at cart, filter DigiKey by package "TO-247 / TO-3P". Upside: Q_cm's TO-220 insulators
+   are now 15-deep.
+2. **Keystone 7019 binding posts: 4 of 6.** Order 2 more (one dual post per channel).
+3. **Hammond 1182G18 toroids: 2 of 3 on this invoice.** Confirm the third is in the
+   separate toroid/heatsink order; if not, order 1 more.
+
+## Note on the two FET types now in stock
+
+- 12 × **IRFP150PBF** (Vishay, genuine via DigiKey) — original IRFP150.
+- 20 × **IRFP150NPBF** (Amazon) — the BOM part, authenticity to be screened in Phase A.
+
+Either type works (bias select absorbs the V_GS difference; both 100 V / 40 A class).
+Rules: **never mix types within a channel pair**; prefer one type across all three amps
+for consistent channel character. Plan: screen the Amazon N-lot first — if clean, build
+with it and keep the Vishay dozen as certified backup; if dirty, the Vishay 12 covers all
+six pairs with zero sorting headroom (pair adjacent values and accept up to 40 mV).
+
 ## Order status snapshot
 
 | Order | Source | Placed | Received | Checked in (Phase A-1) |
 |---|---|---|---|---|
-| Main BOM rev 4 | DigiKey | | | |
+| Main base order (rev-3, inv. 128236717) | DigiKey | 2026-06-26 | 2026-06-xx ✓ | |
 | Delta-1 + delta-2 (14 lines) | DigiKey | 2026-07-04 | | |
 | IRFP150N ×20 | Amazon | 2026-07-04 | | |
 | 18 k ×100 (select kit) | Amazon | 2026-07-04 | | |
