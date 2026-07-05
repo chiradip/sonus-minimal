@@ -1,4 +1,4 @@
-# PCB Milling Exercise — JIG-1 (V_GS Matching Jig Board)
+# PCB Milling Exercise — JIG-1 rev B (V_GS Matching Jig Board)
 
 **The warm-up board for the Makera Carvera.** This is LABBOOK Fig. 4 — the MOSFET
 matching jig — rebuilt as a single-sided milled PCB. It is deliberately the simplest
@@ -45,29 +45,30 @@ readings are 60–90 s bursts, then power off).
 | `make_gcode.py` | — | regenerates all G-code (`python3 make_gcode.py`) |
 | `gcode/01-isolation-vbit.nc` | 30° V-bit, 0.1 mm tip | 2 concentric outlines per island, Z −0.20 |
 | `gcode/02-drill-1p0mm.nc` | 1.0 mm drill | 4 × TP loop holes |
-| `gcode/03-drill-1p2mm.nc` | 1.2 mm drill | 2 × R_j lead holes |
-| `gcode/04-drill-1p6mm.nc` | 1.6 mm drill | 5 × wire pads (VIN±, SRC, DRAIN, GATE) |
+| `gcode/04-drill-1p6mm.nc` | 1.6 mm drill | 7 × pads: R_j (either style) + VIN±, SRC, DRAIN, GATE |
 | `gcode/05-drill-3p2mm.nc` | 3.2 mm drill | 4 × M3 mounting holes |
 | `gcode/06-cutout-2mm.nc` | 2 mm endmill | outline, 4 passes, 4 tabs (4 mm × ~0.6 mm) |
 
 G-code facts: metric, absolute (G21/G90), plain G0/G1 only (no canned cycles — safe for
 the Carvera's Smoothieware-family controller), spindle M3/M5, ends M30.
 **All coordinates are pre-mirrored for copper-side-up machining. Never mirror again.**
-One WCS for all six files: X0 Y0 at the blank's bottom-left, Z0 on the copper.
+One WCS for all five files: X0 Y0 at the blank's bottom-left, Z0 on the copper.
 
 ## Bill of materials (everything is already in your orders)
 
 | Item | Source status |
 |---|---|
-| R_j — Ohmite TWW10J6R8E, 6.8 Ω 10 W | DigiKey delta order (×3) |
+| R_j — 6.8 Ω 10 W, **either style** (rev B dual footprint): axial Ohmite TWW10J6R8E soldered across the pads, **or** the Amazon aluminum-housed type (50×50×20 mm listing, 19 mm solder lugs with 1.8 mm holes) mounted OFF-board | DigiKey delta (axial ×3) / Amazon (aluminum) |
 | FR4 blank, single-sided, 1.6 mm, ≥80 × 50 mm | delta-4 consumables |
 | Bus wire (TP loops), hookup wire + alligator clips (DUT + supply leads) | delta-4 / bench |
 | 12 V ≥1.5 A supply, DMM | bench |
 
-⚠ **One measurement to confirm on the physical part** (the only assumption I couldn't
-verify from stock on hand): R_j pad pitch is **54 mm**, sized for the datasheet body of
-44.5 × 8 mm. When the TWW10J6R8E arrives, measure the body — if it's over 47 mm, edit
-`PADS[1.2]` in `make_gcode.py` and regenerate before drilling.
+⚠ **R_j thermal rule (both styles):** the jig runs it at 10.6 W = 100 % of rating —
+fine for 60–90 s reads, but the aluminum-housed style **must be bolted to the plate**
+(its rating assumes a heatsink) and the axial style mounts 3–5 mm proud in free air.
+Aluminum style: bolt it next to the DUT heatsink, run two wires from its lugs (1.8 mm
+holes — solder the wire through the hole) to the board's R_j pads. Axial style: solder
+straight across the 54 mm pads.
 
 ## Carvera run sequence
 
@@ -78,7 +79,7 @@ verify from stock on hand): R_j pad pitch is **54 mm**, sized for the datasheet 
 3. **Test cut** (mandatory first time): run the first few lines of `01-isolation` over a
    sacrificial corner, measure the groove — target ≈0.2 mm wide, clean copper edges.
    Groove too wide → raise Z by 0.05; doesn't break through → lower by 0.05.
-4. Run files **01 → 06** in order, changing tools between files (speeds/feeds are in
+4. Run files **01 → 06** in order (five files), changing tools between files (speeds/feeds are in
    each file header: 12 k/9 k/10 k rpm; 300/60/250 mm/min).
 5. **Free the board**: cut the 4 tabs with flush cutters, file smooth. Vacuum all FR4
    dust — wear a mask; fiberglass fines are nasty.
@@ -92,4 +93,4 @@ verify from stock on hand): R_j pad pitch is **54 mm**, sized for the datasheet 
    60 s settle, read V_GS on the TP loops — expect 3.1–4.1 V at ≈1.2 A. First device
    measured = board commissioned = milling workflow proven for Fig. 10.
 
-*JIG-1 rev A · 2026-07-05 · part of the Sonus Minimal build package.*
+*JIG-1 rev B · 2026-07-05 · part of the Sonus Minimal build package.*

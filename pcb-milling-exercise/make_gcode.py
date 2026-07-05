@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SONUS MINIMAL - pcb-milling-exercise: V_GS jig board (JIG-1, rev A)
+SONUS MINIMAL - pcb-milling-exercise: V_GS jig board (JIG-1, rev B)
 G-code generator for Makera Carvera (Smoothieware-flavoured, plain G0/G1 only,
 no canned cycles). Regenerate everything with:  python3 make_gcode.py
 
@@ -36,8 +36,11 @@ ISL_DG   = (54.0, 10.0, 64.0, 29.0)   # DG   : R_j right + DUT drain + gate (tie
 # everything else = SRC/GND sea (supply -, DUT source, TP V-)
 
 PADS = {
-    1.2: [(8, 24), (62, 24)],                          # R_j leads
-    1.6: [(12, 27), (12, 12), (44, 12), (58, 13), (62, 13)],  # VIN+, VIN-, SRC, DRAIN, GATE
+    # R_j pads are DUAL-PURPOSE (1.6 mm): axial TWW10J6R8E solders across them,
+    # OR wires run from them to an off-board aluminum-housed 6.8R/10W bolted to
+    # the same plate as the DUT heatsink (rev B change - see README).
+    1.6: [(8, 24), (62, 24),                            # R_j (axial OR wire-off)
+          (12, 27), (12, 12), (44, 12), (58, 13), (62, 13)],  # VIN+, VIN-, SRC, DRAIN, GATE
     1.0: [(59, 19), (59, 16), (26, 12), (30, 12)],     # TP loops V+ / V-
     3.2: [(5, 5), (65, 5), (5, 35), (65, 35)],         # M3 mounting
 }
@@ -48,7 +51,7 @@ def MX(x):          # mirror for copper-side-up machining
     return round(BOARD_W - x, 3)
 
 def hdr(out, s, note):
-    out += [f"; JIG-1 rev A - {note}",
+    out += [f"; JIG-1 rev B - {note}",
             "; Makera Carvera - copper side UP - output pre-mirrored (do NOT mirror again)",
             "; X0 Y0 = bottom-left of blank, Z0 = top of copper",
             "G21", "G90", "G94", f"G0 Z{SAFE_Z}", f"M3 S{s}", "G4 P2"]
@@ -143,7 +146,6 @@ os.makedirs("gcode", exist_ok=True)
 files = {
     "gcode/01-isolation-vbit.nc": isolation(),
     "gcode/02-drill-1p0mm.nc": drill(1.0),
-    "gcode/03-drill-1p2mm.nc": drill(1.2),
     "gcode/04-drill-1p6mm.nc": drill(1.6),
     "gcode/05-drill-3p2mm.nc": drill(3.2),
     "gcode/06-cutout-2mm.nc": cutout(),

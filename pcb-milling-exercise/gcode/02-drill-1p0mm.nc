@@ -1,4 +1,4 @@
-; JIG-1 rev A - drill 1.0 mm
+; JIG-1 rev B - drill 1.0 mm
 ; Makera Carvera - copper side UP - output pre-mirrored (do NOT mirror again)
 ; X0 Y0 = bottom-left of blank, Z0 = top of copper
 G21

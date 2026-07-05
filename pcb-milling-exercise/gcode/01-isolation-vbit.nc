@@ -1,4 +1,4 @@
-; JIG-1 rev A - 01 isolation (V-bit 30deg 0.1mm tip)
+; JIG-1 rev B - 01 isolation (V-bit 30deg 0.1mm tip)
 ; Makera Carvera - copper side UP - output pre-mirrored (do NOT mirror again)
 ; X0 Y0 = bottom-left of blank, Z0 = top of copper
 G21

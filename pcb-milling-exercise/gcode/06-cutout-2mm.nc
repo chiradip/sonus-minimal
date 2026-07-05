@@ -1,4 +1,4 @@
-; JIG-1 rev A - 06 board cutout (2 mm endmill) with 4 tabs
+; JIG-1 rev B - 06 board cutout (2 mm endmill) with 4 tabs
 ; Makera Carvera - copper side UP - output pre-mirrored (do NOT mirror again)
 ; X0 Y0 = bottom-left of blank, Z0 = top of copper
 G21
