@@ -8,6 +8,7 @@ is placed or received; reference it from the unit logs in LABBOOK Appendix A.
 |---|---|---|---|---|---|---|
 | 2026-07-04 | **IRFP150NPBF** (Q1, Q2) | 20 | **Amazon** | Out of stock on DigiKey at order time | ordered | ⚠ see authenticity note below |
 | 2026-07-04 | **TOOL R_dummy** (BOM: Arcol HS50 8R J) | **8** (4 × 2-pc packs) | **Amazon** — "Chanzon 2pcs Wirewound Aluminum Shell Resistor 8 Ω 50W ±5% 8R" | Substitute brand, convenience | ordered | Acceptable; 8 pcs enables a 2×2 array per channel — see dummy-load note below |
+| 2026-07-04 | **Rb_bot select 18 k** (BOM: MFR-25FBF52-18K) | 100 (6 max used) | **Amazon** — "Chanzon 100pcs 1/4W 18K Ω Metal Film Fixed Resistor ±1% MF Through Hole" | Substitute brand, bulk pack | ordered | Spec-equivalent (18 k ¼ W 1 % MF). DMM-verify a sample on arrival (17.82–18.18 k). Conditional stock: stuffed only for FET pairs with V_GS < 3.15 V (Table 4.3). Bag + label the ~94 spares — do NOT let loose resistors near the build. |
 
 ## ⚠ Note on the Amazon-sourced IRFP150N
 
