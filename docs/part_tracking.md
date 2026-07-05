@@ -78,6 +78,11 @@ smaller risk but still worth the same arrival check.
 Order file for gap 1: **`BOM-rev4-delta-3-gaps.csv`** (12× TO-247 pads + bushings).
 Verify the TO-247 package filter at cart — do not trust 4880-series numbering.
 
+4. **Consumables/hardware never on any BOM** (Phase B readiness audit, 2026-07-04):
+   perfboard, Q_cm heatsink, 0.187″ QC terminals, ring lugs, bus/hookup wire, heat-shrink,
+   dim-bulb tester makings (100 W incandescent!), M3/M4 hardware, mounting plate.
+   Order file: **`BOM-rev4-delta-4-consumables.csv`** — half DigiKey, half hardware store.
+
 ## Note on the two FET types now in stock
 
 - 12 × **IRFP150PBF** (Vishay, genuine via DigiKey) — original IRFP150.
@@ -96,6 +101,7 @@ six pairs with zero sorting headroom (pair adjacent values and accept up to 40 m
 | Main base order (rev-3, inv. 128236717) | DigiKey | 2026-06-26 | 2026-06-xx ✓ | |
 | Delta-1 + delta-2 (14 lines) | DigiKey | 2026-07-04 | | |
 | Delta-3 gap (12× TO-247 insulator kits) | DigiKey | | | |
+| Delta-4 consumables (perfboard, wire, dim-bulb, hardware) | DigiKey + hardware store | | | |
 | IRFP150N ×20 | Amazon | 2026-07-04 | | |
 | 18 k ×100 (select kit) | Amazon | 2026-07-04 | | |
 | Dummy loads 8 Ω ×8 | Amazon | 2026-07-04 | | |
