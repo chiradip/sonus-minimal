@@ -29,6 +29,7 @@ resolved build package.
 | `docs/original/` | Incoming handoff package: rev 3 BOM, design write-up, original PNG diagrams — **superseded**, kept for provenance |
 | `diagrams/fig01…fig10*.svg` | Rev A figures: system, schematics, jig, boards, chassis, dim-bulb, milling plans |
 | `spice/*.cir` | LTspice/ngspice decks for the channel and PSU (expected results in comments) |
+| `pcb-milling-exercise/` | JIG-1 warm-up board for the Makera Carvera: Fig. 4 jig as a milled PCB — artwork, ready-to-run G-code, run guide |
 
 ## Design state (rev 4, 2026-07)
 
