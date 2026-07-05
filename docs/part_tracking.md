@@ -1,5 +1,10 @@
 # Part Tracking — procurement log
 
+> **Scope (2026-07-04): building 2 units (SM-001, SM-002).** Quantities across all orders
+> were deliberately sized for 3 amps as an attrition buffer for perfboard/breadboard
+> experimentation. Third-unit-only hardware (toroid #3, heatsink pair #3, IEC #3, bridge #3)
+> is shelf stock, not waste — a third build remains possible without re-planning.
+
 Running log of where parts actually came from, when the source differs from the BOM's
 assumption (DigiKey), and anything that affects build quality. Add a row whenever an order
 is placed or received; reference it from the unit logs in LABBOOK Appendix A.
@@ -63,12 +68,13 @@ smaller risk but still worth the same arrival check.
    Bergquist Sil-Pad 400 in the TO-247 cutout + nylon TO-247 bushing — VERIFY exact MPN
    at cart, filter DigiKey by package "TO-247 / TO-3P". Upside: Q_cm's TO-220 insulators
    are now 15-deep.
-2. **Keystone 7019 binding posts: 4 of 6.** Order 2 more (one dual post per channel).
+2. ~~Keystone 7019 binding posts: 4 of 6.~~ **RESOLVED by scope change (2 units):**
+   4 posts = exactly 2 amps. No reorder.
 3. ~~Hammond 1182G18 toroids: 2 of 3 on this invoice.~~ **RESOLVED 2026-07-04:** the
    third toroid was ordered separately (see snapshot table).
 
-Order file for gaps 1–2: **`BOM-rev4-delta-3-gaps.csv`** (TO-247 pads + bushings, 2 binding
-posts). Verify the TO-247 package filter at cart — do not trust 4880-series numbering.
+Order file for gap 1: **`BOM-rev4-delta-3-gaps.csv`** (12× TO-247 pads + bushings).
+Verify the TO-247 package filter at cart — do not trust 4880-series numbering.
 
 ## Note on the two FET types now in stock
 
@@ -76,7 +82,7 @@ posts). Verify the TO-247 package filter at cart — do not trust 4880-series nu
 - 20 × **IRFP150NPBF** (Amazon) — the BOM part, authenticity to be screened in Phase A.
 
 Either type works (bias select absorbs the V_GS difference; both 100 V / 40 A class).
-Rules: **never mix types within a channel pair**; prefer one type across all three amps
+Rules: **never mix types within a channel pair**; prefer one type across both amps
 for consistent channel character. Plan: screen the Amazon N-lot first — if clean, build
 with it and keep the Vishay dozen as certified backup; if dirty, the Vishay 12 covers all
 six pairs with zero sorting headroom (pair adjacent values and accept up to 40 mV).
@@ -87,7 +93,7 @@ six pairs with zero sorting headroom (pair adjacent values and accept up to 40 m
 |---|---|---|---|---|
 | Main base order (rev-3, inv. 128236717) | DigiKey | 2026-06-26 | 2026-06-xx ✓ | |
 | Delta-1 + delta-2 (14 lines) | DigiKey | 2026-07-04 | | |
-| Delta-3 gaps (TO-247 kits, 2× 7019) | DigiKey | | | |
+| Delta-3 gap (12× TO-247 insulator kits) | DigiKey | | | |
 | IRFP150N ×20 | Amazon | 2026-07-04 | | |
 | 18 k ×100 (select kit) | Amazon | 2026-07-04 | | |
 | Dummy loads 8 Ω ×8 | Amazon | 2026-07-04 | | |

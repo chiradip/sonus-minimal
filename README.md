@@ -1,7 +1,9 @@
 # Sonus Minimal
 
 Single-ended Class A MOSFET stereo amplifier — ~5.5 W/ch into 8 Ω, Pass ACA lineage.
-Three units to be built. This repo is the complete, resolved build package.
+Two units to be built (SM-001, SM-002); parts stocked at 3-amp depth as an attrition
+buffer for early perfboard/breadboard experimentation. This repo is the complete,
+resolved build package.
 
 ![System block diagram](diagrams/fig01-system-block.svg)
 

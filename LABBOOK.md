@@ -4,12 +4,14 @@
 **Document:** LABBOOK rev A · 2026-07-03 · supersedes nothing (first edition)
 **Design baseline:** `docs/original/Sonus-Minimal-handoff.md` (BOM rev3) → resolved here as **rev 4**
 **Mains:** 120 V / 60 Hz (US). 230 V differences are flagged where they occur.
+**Scope (2026-07-04):** building **2 units** (SM-001, SM-002). Parts were bought at 3-amp depth
+deliberately — the surplus is an attrition buffer for perfboard/breadboard experimentation.
 
 | Unit serial | Builder | Started | Completed | Sign-off (Phase G) |
 |---|---|---|---|---|
 | SM-001 | | | | |
 | SM-002 | | | | |
-| SM-003 | | | | |
+| SM-003 *(not planned — parts held as attrition stock)* | — | — | — | — |
 
 ---
 
@@ -53,7 +55,7 @@ Conventions:
   original documents say "24 V" — §3/ECR-4 explains why the honest number is lower and why
   that is fine.
 
-Time budget (per amplifier, experienced beginner): A: 3 h (once, covers all three amps) ·
+Time budget (per amplifier, experienced beginner): A: 3 h (once, covers every device owned) ·
 B: 4 h · C: 5 h · D: 3 h · E: 2 h · F: 3 h · G: 2 h → **≈ 20 h for the first unit**, roughly
 half that for each following one.
 
@@ -421,8 +423,8 @@ earlier device as a drift check.
 | SM-001 R | | | | |
 | SM-002 L | | | | |
 | SM-002 R | | | | |
-| SM-003 L | | | | |
-| SM-003 R | | | | |
+| spare pair 1 | | | | |
+| spare pair 2 | | | | |
 
 **GATE A:** ☐ all six pairs ≤ 25 mV ☐ Rb_bot chosen per pair ☐ leftover devices bagged as
 labeled spares. *(A high-V_GS straggler pair > 3.90 V? Order 39 k before Phase C.)*
@@ -662,7 +664,7 @@ vibes.*
 - ☐ **G-6** Fill the serial plate + Appendix A log; sign the cover table.
 
 **Congratulations — you built a measured, documented, competition-grade Class A amplifier.**
-Units 2 and 3: repeat B→G (Phase A already covered all devices).
+Unit 2: repeat B→G (Phase A already covered all devices).
 
 ---
 
@@ -691,7 +693,7 @@ Units 2 and 3: repeat B→G (Phase A already covered all devices).
 <a id="appendix-a"></a>
 ## Appendix A — Per-unit measurement log
 
-Duplicate of every record table (A.2, B-5, D-4, E-6, F-2..F-7) for units SM-002 and SM-003 —
+Duplicate of every record table (A.2, B-5, D-4, E-6, F-2..F-7) for unit SM-002 —
 photocopy or reproduce in your notebook. A unit without its filled log has not completed
 Phase G by definition.
 
