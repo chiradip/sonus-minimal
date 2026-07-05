@@ -66,7 +66,7 @@ smaller risk but still worth the same arrival check.
    contents" flag is hereby cashed in). 4880MG (delta order) is also TO-220. Q1/Q2 are
    TO-247: **need 12 TO-247/TO-3P insulator pads.** RESOLVED MPN (verified on DigiKey
    2026-07-04): **Bergquist SP400-0.007-00-104** — listed TO-218/220/247, 25.4x19.05 mm,
-   in stock (7,002), \$0.25. Alternates: Fischer WK 247, Wakefield WTI7R1F0-1.00X0.75.
+   in stock (7,002), $0.25. Alternates: Fischer WK 247, Wakefield WTI7R1F0-1.00X0.75.
    Bushings only if the FET's mounting hole shows metal (IRFP150N holes are plastic-lined).
    Both 4880 numbers confirmed TO-220 on their product pages. Upside: Q_cm's TO-220
    insulators are now 15-deep.
