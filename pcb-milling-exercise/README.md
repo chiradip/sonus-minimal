@@ -59,7 +59,7 @@ One WCS for all five files: X0 Y0 at the blank's bottom-left, Z0 on the copper.
 | Item | Source status |
 |---|---|
 | R_j — 6.8 Ω 10 W, **either style** (rev B dual footprint): axial Ohmite TWW10J6R8E soldered across the pads, **or** the Amazon aluminum-housed type (50×50×20 mm listing, 19 mm solder lugs with 1.8 mm holes) mounted OFF-board | DigiKey delta (axial ×3) / Amazon (aluminum) |
-| FR4 blank, single-sided, 1.6 mm, ≥80 × 50 mm | delta-4 consumables |
+| FR4 blank, single-sided, 1.6 mm — on hand: **150 × 100 mm** (any ≥80 × 50 works) | in stock |
 | Bus wire (TP loops), hookup wire + alligator clips (DUT + supply leads) | delta-4 / bench |
 | 12 V ≥1.5 A supply, DMM | bench |
 
@@ -92,9 +92,12 @@ The `.nc` files load **directly into CarveraController** — no FlatCAM/MakeraCA
    works as-is, or set `ISO_Z = -0.12` and regenerate to spare the bit. (0.1 mm-tip bits
    exist as generic stock but aren't in the pack — and they snap; don't bother.)
    Mirror options stay OFF everywhere — files are pre-mirrored.
-1. **Stock**: pack FR4 blank copper-UP, full double-sided tape, pressed flat.
-2. **Origin, once**: jog the laser crosshair to the blank's bottom-left corner →
-   Set Work Origin (Current Pos). Never re-set between files.
+1. **Stock**: FR4 blank copper-UP (150 × 100 stock is fine — the origin defines the
+   board, not the blank), full double-sided tape, pressed flat.
+2. **Origin, once**: jog the laser crosshair to a point **~5 mm in from a corner** of
+   the blank → Set Work Origin (Current Pos). The 70 × 40 board mills in that corner;
+   the rest of the blank stays usable (a 150 × 100 also hosts one rotated 100 × 70
+   channel board beside JIG-1). Never re-set the origin between files.
 3. **File 01** (isolation): insert bit (auto tool-length runs) → upload → job start with
    **Auto-Level ON, ~15 points** over the 70 × 40 area → run. Copper left in a groove?
    Re-run with −0.05 controller Z-offset.
