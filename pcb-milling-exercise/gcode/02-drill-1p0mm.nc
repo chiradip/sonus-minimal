@@ -1,10 +1,12 @@
-; JIG-1 rev B - drill 1.0 mm
+; JIG-1 rev B - drill 1.0 mm (slot T2)
 ; Makera Carvera - copper side UP - output pre-mirrored (do NOT mirror again)
 ; X0 Y0 = bottom-left of blank, Z0 = top of copper
+; ATC slot map: T1 iso bit / T2 1.0mm / T3 1.6mm / T4 3.175mm / T5 2mm endmill
 G21
 G90
 G94
 G0 Z5.0
+T2 M6
 M3 S9000
 G4 P2
 ; peck to -1.85 in 3 steps, feed 60

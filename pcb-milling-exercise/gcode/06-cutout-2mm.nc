@@ -1,10 +1,12 @@
-; JIG-1 rev B - 06 board cutout (2 mm endmill) with 4 tabs
+; JIG-1 rev B - 06 board cutout (slot T5: 2mm endmill) with 4 tabs
 ; Makera Carvera - copper side UP - output pre-mirrored (do NOT mirror again)
 ; X0 Y0 = bottom-left of blank, Z0 = top of copper
+; ATC slot map: T1 iso bit / T2 1.0mm / T3 1.6mm / T4 3.175mm / T5 2mm endmill
 G21
 G90
 G94
 G0 Z5.0
+T5 M6
 M3 S10000
 G4 P2
 ; pass at Z-0.45

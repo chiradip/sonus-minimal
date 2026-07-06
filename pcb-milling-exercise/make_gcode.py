@@ -50,11 +50,14 @@ ISO_OFFSETS = [0.15, 0.40]   # two concentric passes -> ~0.5+ mm gap
 def MX(x):          # mirror for copper-side-up machining
     return round(BOARD_W - x, 3)
 
-def hdr(out, s, note):
+def hdr(out, s, note, tool):
     out += [f"; JIG-1 rev B - {note}",
             "; Makera Carvera - copper side UP - output pre-mirrored (do NOT mirror again)",
             "; X0 Y0 = bottom-left of blank, Z0 = top of copper",
-            "G21", "G90", "G94", f"G0 Z{SAFE_Z}", f"M3 S{s}", "G4 P2"]
+            f"; ATC slot map: T1 iso bit / T2 1.0mm / T3 1.6mm / T4 3.175mm / T5 2mm endmill",
+            "G21", "G90", "G94", f"G0 Z{SAFE_Z}",
+            f"T{tool} M6",
+            f"M3 S{s}", "G4 P2"]
     return out
 
 def ftr(out):
@@ -67,7 +70,7 @@ def rect_path(x1, y1, x2, y2, e):
     return [(MX(x), round(y, 3)) for (x, y) in pts]
 
 def isolation():
-    out = hdr([], S_ISO, "01 isolation (V-bit 30deg 0.1mm tip)")
+    out = hdr([], S_ISO, "01 isolation (slot T1: 0.2mm corn mill or 30deg V-bit)", 1)
     out.append(f"; depth {ISO_Z} mm, feed {F_ISO}, two passes per island")
     for name, isl in (("VIN+", ISL_VINP), ("DG", ISL_DG)):
         for e in ISO_OFFSETS:
@@ -80,8 +83,8 @@ def isolation():
             out.append(f"G0 Z{SAFE_Z}")
     return ftr(out)
 
-def drill(dia):
-    out = hdr([], S_DRILL, f"drill {dia} mm")
+def drill(dia, tool):
+    out = hdr([], S_DRILL, f"drill {dia} mm (slot T{tool})", tool)
     out.append(f"; peck to {DRILL_Z} in 3 steps, feed {F_DRILL}")
     steps = [DRILL_Z / 3, 2 * DRILL_Z / 3, DRILL_Z]
     for (x, y) in PADS[dia]:
@@ -93,7 +96,7 @@ def drill(dia):
     return ftr(out)
 
 def cutout():
-    out = hdr([], S_CUT, "06 board cutout (2 mm endmill) with 4 tabs")
+    out = hdr([], S_CUT, "06 board cutout (slot T5: 2mm endmill) with 4 tabs", 5)
     # perimeter as parameterised loop, CCW from (0,0); mirrored = same rectangle
     corners = [(0, 0), (BOARD_W, 0), (BOARD_W, BOARD_H), (0, BOARD_H)]
     seglens = [BOARD_W, BOARD_H, BOARD_W, BOARD_H]
@@ -145,9 +148,9 @@ def cutout():
 os.makedirs("gcode", exist_ok=True)
 files = {
     "gcode/01-isolation-vbit.nc": isolation(),
-    "gcode/02-drill-1p0mm.nc": drill(1.0),
-    "gcode/04-drill-1p6mm.nc": drill(1.6),
-    "gcode/05-drill-3p2mm.nc": drill(3.2),
+    "gcode/02-drill-1p0mm.nc": drill(1.0, 2),
+    "gcode/04-drill-1p6mm.nc": drill(1.6, 3),
+    "gcode/05-drill-3p2mm.nc": drill(3.2, 4),
     "gcode/06-cutout-2mm.nc": cutout(),
 }
 for name, content in files.items():

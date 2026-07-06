@@ -74,8 +74,21 @@ straight across the 54 mm pads.
 
 The `.nc` files load **directly into CarveraController** — no FlatCAM/MakeraCAM needed.
 
-0. **Bit decision for file 01**: pack's 0.2 mm corn mill → set `ISO_Z = -0.12` in
-   `make_gcode.py` and regenerate; 30° V-bit (0.1 mm tip) → files correct as-is.
+0. **Load the ATC** (all ⅛″-shank tooling):
+
+   | Slot | Tool | File |
+   |---|---|---|
+   | T1 | 0.2 mm corn mill (pack) or 30° V-bit | 01 isolation |
+   | T2 | 1.0 mm PCB drill | 02 |
+   | T3 | 1.6 mm PCB drill | 04 |
+   | T4 | 3.175 mm (⅛″) drill | 05 (M3 holes) |
+   | T5 | 2.0 mm endmill | 06 cutout |
+   | T6 | — empty — | |
+
+   Each file fetches its own tool (`T# M6` in the header) — load the slots right and the
+   machine handles changes + tool-length measurement itself.
+   **Bit decision for T1**: corn mill → set `ISO_Z = -0.12` in `make_gcode.py` and
+   regenerate; 30° V-bit (0.1 mm tip) → files correct as-is.
    Mirror options stay OFF everywhere — files are pre-mirrored.
 1. **Stock**: pack FR4 blank copper-UP, full double-sided tape, pressed flat.
 2. **Origin, once**: jog the laser crosshair to the blank's bottom-left corner →
@@ -97,8 +110,8 @@ The `.nc` files load **directly into CarveraController** — no FlatCAM/MakeraCA
 3. **Test cut** (mandatory first time): run the first few lines of `01-isolation` over a
    sacrificial corner, measure the groove — target ≈0.2 mm wide, clean copper edges.
    Groove too wide → raise Z by 0.05; doesn't break through → lower by 0.05.
-4. Run files **01 → 06** in order (five files), changing tools between files (speeds/feeds are in
-   each file header: 12 k/9 k/10 k rpm; 300/60/250 mm/min).
+4. Run files **01 → 06** in order (five files). With the ATC loaded per the slot table,
+   tool changes are automatic (speeds/feeds in each header: 12 k/9 k/10 k rpm; 300/60/250 mm/min).
 5. **Free the board**: cut the 4 tabs with flush cutters, file smooth. Vacuum all FR4
    dust — wear a mask; fiberglass fines are nasty.
 
