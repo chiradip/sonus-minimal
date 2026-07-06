@@ -118,6 +118,10 @@ The `.nc` files load **directly into CarveraController** — no FlatCAM/MakeraCA
 ## Acceptance (do all three before calling it done)
 
 1. **Buzz-out (unstuffed)**: VIN+↔DG open · VIN+↔sea open · DG↔sea open.
+   Then **tin the bare copper** (flux + drag a solder blob with a broad tip, or liquid
+   tin) — that's the oxidation protection. No solder mask: nothing here can bridge, and
+   the UV-mask workflow adds three stages + laser-offset calibration for zero benefit
+   on a board this coarse.
 2. **Stuff & buzz again**: solder R_j (3–5 mm proud) + TP loops + supply/DUT leads.
    Now VIN+↔DG must read ≈6.8 Ω, everything↔sea still open.
 3. **Live test = LABBOOK Phase A, step A-2/A-3**: clip a DUT on its heatsink, 12 V on,
