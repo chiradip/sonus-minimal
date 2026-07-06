@@ -70,7 +70,25 @@ Aluminum style: bolt it next to the DUT heatsink, run two wires from its lugs (1
 holes — solder the wire through the hole) to the board's R_j pads. Axial style: solder
 straight across the 54 mm pads.
 
-## Carvera run sequence
+## CarveraController run sequence (PCB Fabrication Pack)
+
+The `.nc` files load **directly into CarveraController** — no FlatCAM/MakeraCAM needed.
+
+0. **Bit decision for file 01**: pack's 0.2 mm corn mill → set `ISO_Z = -0.12` in
+   `make_gcode.py` and regenerate; 30° V-bit (0.1 mm tip) → files correct as-is.
+   Mirror options stay OFF everywhere — files are pre-mirrored.
+1. **Stock**: pack FR4 blank copper-UP, full double-sided tape, pressed flat.
+2. **Origin, once**: jog the laser crosshair to the blank's bottom-left corner →
+   Set Work Origin (Current Pos). Never re-set between files.
+3. **File 01** (isolation): insert bit (auto tool-length runs) → upload → job start with
+   **Auto-Level ON, ~15 points** over the 70 × 40 area → run. Copper left in a groove?
+   Re-run with −0.05 controller Z-offset.
+4. **Files 02 → 04 → 05** (drills 1.0/1.6/3.2): per file, swap drill → upload →
+   **Auto-Level: reuse heightmap, do NOT re-probe** → run.
+5. **File 06** (cutout, 2 mm endmill): reuse heightmap → run → vacuum FR4 dust (mask!).
+6. Cut tabs, file, then the Acceptance section below.
+
+## Manual run sequence (any G-code sender)
 
 1. **Stock down**: tape (or tape+CA) the blank to the spoilboard, copper **up**. Press
    flat — V-bit depth errors equal flatness errors.
