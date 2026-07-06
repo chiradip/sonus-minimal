@@ -62,7 +62,7 @@
   <!-- legend / run order -->
   <rect x="720" y="120" width="320" height="360" rx="9" fill="#f5f7fa" stroke="#b0bec5"/>
   <text x="738" y="148" class="ref" font-size="14">Run order (one file per tool)</text>
-  <path d="M738,168 h26" class="iso"/><text x="774" y="173" class="note">1&#8201;&#8201;01-isolation-vbit.nc — 30&#176; V-bit</text>
+  <path d="M738,168 h26" class="iso"/><text x="774" y="173" class="note">1&#8201;&#8201;01-isolation-vbit.nc — 0.2 mm V-bit/corn</text>
   <circle cx="750" cy="196" r="5" fill="#00695c"/><text x="774" y="201" class="note">2&#8201;&#8201;02-drill-1p0mm.nc — TP loops</text>
   <circle cx="750" cy="224" r="7.5" fill="#e65100"/><text x="774" y="229" class="note">3&#8201;&#8201;04-drill-1p6mm.nc — R_j + wire pads</text>
   <circle cx="750" cy="252" r="10" fill="none" stroke="#37474f" stroke-width="2.2"/><text x="774" y="257" class="note">4&#8201;&#8201;05-drill-3p2mm.nc — M3</text>
@@ -71,8 +71,8 @@
   <text x="738" y="365" class="note" font-size="12.5">Z on the COPPER surface, once, then run</text>
   <text x="738" y="382" class="note" font-size="12.5">all five files against the same WCS.</text>
   <text x="738" y="406" class="warn" font-size="12.5">Before file 1: air-cut, then a corner test</text>
-  <text x="738" y="423" class="warn" font-size="12.5">cut — measure the V-groove width</text>
-  <text x="738" y="440" class="warn" font-size="12.5">(~0.2 mm) and adjust Z-0.20 if needed.</text>
+  <text x="738" y="423" class="warn" font-size="12.5">cut — measure the groove width</text>
+  <text x="738" y="440" class="warn" font-size="12.5">(0.2&#8211;0.35 mm) — adjust Z-0.20 if needed.</text>
   <text x="738" y="464" class="note" font-size="12.5">Feeds: iso 300 &#183; drill 60 &#183; cut 250 mm/min</text>
 
   <!-- notes -->

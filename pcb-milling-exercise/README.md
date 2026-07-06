@@ -43,7 +43,7 @@ readings are 60–90 s bursts, then power off).
 | File | Tool | What it does |
 |---|---|---|
 | `make_gcode.py` | — | regenerates all G-code (`python3 make_gcode.py`) |
-| `gcode/01-isolation-vbit.nc` | 30° V-bit, 0.1 mm tip | 2 concentric outlines per island, Z −0.20 |
+| `gcode/01-isolation-vbit.nc` | 0.2 mm-tip V-bit or corn mill | 2 concentric outlines per island, Z −0.20 |
 | `gcode/02-drill-1p0mm.nc` | 1.0 mm drill | 4 × TP loop holes |
 | `gcode/04-drill-1p6mm.nc` | 1.6 mm drill | 7 × pads: R_j (either style) + VIN±, SRC, DRAIN, GATE |
 | `gcode/05-drill-3p2mm.nc` | 3.2 mm drill | 4 × M3 mounting holes |
@@ -78,7 +78,7 @@ The `.nc` files load **directly into CarveraController** — no FlatCAM/MakeraCA
 
    | Slot | Tool | File |
    |---|---|---|
-   | T1 | 0.2 mm corn mill (pack) or 30° V-bit | 01 isolation |
+   | T1 | 0.2 mm-tip V-bit (30°/20°) or 0.2 mm corn mill — both in-pack sizes | 01 isolation |
    | T2 | 1.0 mm PCB drill | 02 |
    | T3 | 1.6 mm PCB drill | 04 |
    | T4 | 3.175 mm (⅛″) drill | 05 (M3 holes) |
@@ -87,8 +87,10 @@ The `.nc` files load **directly into CarveraController** — no FlatCAM/MakeraCA
 
    Each file fetches its own tool (`T# M6` in the header) — load the slots right and the
    machine handles changes + tool-length measurement itself.
-   **Bit decision for T1**: corn mill → set `ISO_Z = -0.12` in `make_gcode.py` and
-   regenerate; 30° V-bit (0.1 mm tip) → files correct as-is.
+   **Bit decision for T1**: 0.2 mm-tip V-bit → files correct as-is (groove ≈0.31 mm at
+   Z −0.20; the two passes merge to the designed ≈0.55 mm gap). 0.2 mm corn mill → also
+   works as-is, or set `ISO_Z = -0.12` and regenerate to spare the bit. (0.1 mm-tip bits
+   exist as generic stock but aren't in the pack — and they snap; don't bother.)
    Mirror options stay OFF everywhere — files are pre-mirrored.
 1. **Stock**: pack FR4 blank copper-UP, full double-sided tape, pressed flat.
 2. **Origin, once**: jog the laser crosshair to the blank's bottom-left corner →

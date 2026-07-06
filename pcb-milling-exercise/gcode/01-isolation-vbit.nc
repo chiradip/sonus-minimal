@@ -1,4 +1,4 @@
-; JIG-1 rev B - 01 isolation (slot T1: 0.2mm corn mill or 30deg V-bit)
+; JIG-1 rev B - 01 isolation (slot T1: 0.2mm-tip V-bit or 0.2mm corn mill)
 ; Makera Carvera - copper side UP - output pre-mirrored (do NOT mirror again)
 ; X0 Y0 = bottom-left of blank, Z0 = top of copper
 ; ATC slot map: T1 iso bit / T2 1.0mm / T3 1.6mm / T4 3.175mm / T5 2mm endmill

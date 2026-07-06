@@ -70,7 +70,7 @@ def rect_path(x1, y1, x2, y2, e):
     return [(MX(x), round(y, 3)) for (x, y) in pts]
 
 def isolation():
-    out = hdr([], S_ISO, "01 isolation (slot T1: 0.2mm corn mill or 30deg V-bit)", 1)
+    out = hdr([], S_ISO, "01 isolation (slot T1: 0.2mm-tip V-bit or 0.2mm corn mill)", 1)
     out.append(f"; depth {ISO_Z} mm, feed {F_ISO}, two passes per island")
     for name, isl in (("VIN+", ISL_VINP), ("DG", ISL_DG)):
         for e in ISO_OFFSETS:
