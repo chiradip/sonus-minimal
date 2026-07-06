@@ -92,8 +92,9 @@ The `.nc` files load **directly into CarveraController** — no FlatCAM/MakeraCA
    works as-is, or set `ISO_Z = -0.12` and regenerate to spare the bit. (0.1 mm-tip bits
    exist as generic stock but aren't in the pack — and they snap; don't bother.)
    Mirror options stay OFF everywhere — files are pre-mirrored.
-1. **Stock**: FR4 blank copper-UP (150 × 100 stock is fine — the origin defines the
-   board, not the blank), full double-sided tape, pressed flat.
+1. **Stock**: Makera 200 × 240 MDF spoilboard on the bed as-is (no cutting — fix it at
+   the edges only), then the FR4 blank copper-UP on top (150 × 100 stock is fine — the
+   origin defines the board, not the blank), full double-sided tape, pressed flat.
 2. **Origin, once**: jog the laser crosshair to a point **~5 mm in from a corner** of
    the blank → Set Work Origin (Current Pos). The 70 × 40 board mills in that corner;
    the rest of the blank stays usable (a 150 × 100 also hosts one rotated 100 × 70
